@@ -58,4 +58,19 @@ export const orders = mysqlTable("orders", {
 export type Order = typeof orders.$inferSelect;
 export type InsertOrder = typeof orders.$inferInsert;
 
+// Admin configuration table for managing admin access
+export const adminConfig = mysqlTable("adminConfig", {
+  id: int("id").autoincrement().primaryKey(),
+  passwordHash: varchar("passwordHash", { length: 255 }).notNull(), // Hashed password
+  email: varchar("email", { length: 320 }).notNull(), // Recovery email
+  whatsapp: varchar("whatsapp", { length: 20 }).notNull(), // Recovery WhatsApp
+  recoveryToken: varchar("recoveryToken", { length: 255 }), // Token for password recovery
+  recoveryTokenExpiry: timestamp("recoveryTokenExpiry"), // Expiry time for recovery token
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type AdminConfig = typeof adminConfig.$inferSelect;
+export type InsertAdminConfig = typeof adminConfig.$inferInsert;
+
 // TODO: Add your tables here

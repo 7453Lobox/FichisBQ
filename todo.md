@@ -67,3 +67,17 @@
 - [x] Agregar link a panel de administración de pedidos en navegación (solo para admins)
 - [x] Implementar colección de datos del cliente (nombre y teléfono) antes de enviar por WhatsApp
 - [x] Limpiar carrito después de enviar pedido exitosamente
+
+
+## Sistema de Autenticación Privado de Admin (Sesión 4)
+
+- [x] Crear tabla adminConfig en BD para almacenar contraseña, email y WhatsApp
+- [x] Implementar procedimientos tRPC para login, logout, cambio de contraseña
+- [x] Implementar recuperación de contraseña por email y WhatsApp
+- [x] Crear página de login privado (/admin/login)
+- [x] Crear página de recuperación de contraseña (/admin/recuperar)
+- [x] Cambiar URL del panel de pedidos a /admin/pedidos-fichi-bbq (URL privada)
+- [x] Remover link de admin de navegación pública
+- [x] Crear tests unitarios para autenticación de admin (14 tests)
+- [x] Integrar bcrypt para hashing seguro de contraseñas
+- [x] Implementar funciones para cambiar email y WhatsApp

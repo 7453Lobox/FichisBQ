@@ -1,6 +1,6 @@
 import { eq, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, galleryImages, InsertGalleryImage, orders, InsertOrder, Order } from "../drizzle/schema";
+import { InsertUser, users, galleryImages, InsertGalleryImage, orders, InsertOrder, Order, adminConfig } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -200,3 +200,81 @@ export async function updateOrderStatus(id: number, status: Order["status"]) {
 }
 
 // TODO: add feature queries here as your schema grows.
+
+// Admin config queries
+export async function getAdminConfig() {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get admin config: database not available");
+    return null;
+  }
+
+  try {
+    const result = await db.select().from(adminConfig).limit(1);
+    return result.length > 0 ? result[0] : null;
+  } catch (error) {
+    console.error("[Database] Failed to get admin config:", error);
+    throw error;
+  }
+}
+
+export async function updateAdminPassword(passwordHash: string) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot update admin password: database not available");
+    return null;
+  }
+
+  try {
+    return await db.update(adminConfig).set({ passwordHash, recoveryToken: null, recoveryTokenExpiry: null });
+  } catch (error) {
+    console.error("[Database] Failed to update admin password:", error);
+    throw error;
+  }
+}
+
+export async function updateAdminEmail(email: string) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot update admin email: database not available");
+    return null;
+  }
+
+  try {
+    return await db.update(adminConfig).set({ email });
+  } catch (error) {
+    console.error("[Database] Failed to update admin email:", error);
+    throw error;
+  }
+}
+
+export async function updateAdminWhatsapp(whatsapp: string) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot update admin whatsapp: database not available");
+    return null;
+  }
+
+  try {
+    return await db.update(adminConfig).set({ whatsapp });
+  } catch (error) {
+    console.error("[Database] Failed to update admin whatsapp:", error);
+    throw error;
+  }
+}
+
+export async function setRecoveryToken(token: string, expiryMinutes: number = 30) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot set recovery token: database not available");
+    return null;
+  }
+
+  try {
+    const expiry = new Date(Date.now() + expiryMinutes * 60 * 1000);
+    return await db.update(adminConfig).set({ recoveryToken: token, recoveryTokenExpiry: expiry });
+  } catch (error) {
+    console.error("[Database] Failed to set recovery token:", error);
+    throw error;
+  }
+}

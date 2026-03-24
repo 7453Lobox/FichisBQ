@@ -5,9 +5,11 @@ import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import { getAllGalleryImages, addGalleryImage, deleteGalleryImage, createOrder, getAllOrders, updateOrderStatus } from "./db";
 import { storagePut } from "./storage";
+import { adminRouter } from "./adminRouter";
 
 export const appRouter = router({
   system: systemRouter,
+  admin: adminRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
     logout: publicProcedure.mutation(({ ctx }) => {

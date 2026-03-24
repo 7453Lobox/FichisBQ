@@ -71,11 +71,6 @@ export default function Home() {
               <a href="#contacto" className="font-semibold text-foreground dark:text-white hover:text-primary dark:hover:text-accent transition-colors">
                 Contacto
               </a>
-              {user?.role === 'admin' && (
-                <a href="/admin/orders" className="font-semibold text-primary dark:text-accent hover:text-accent dark:hover:text-yellow-300 transition-colors bg-accent/20 px-3 py-1 rounded-full">
-                  📋 Pedidos
-                </a>
-              )}
             </div>
             <button
               onClick={toggleTheme}
@@ -84,17 +79,10 @@ export default function Home() {
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <div className="flex items-center gap-3">
-              {user?.role === 'admin' && (
-                <a href="/admin/orders" className="text-xs md:text-sm font-bold text-primary dark:text-accent hover:text-accent dark:hover:text-yellow-300 transition-colors lg:hidden">
-                  📋
-                </a>
-              )}
-              <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs md:text-sm font-bold text-primary dark:text-white hover:text-accent dark:hover:text-accent transition-colors whitespace-nowrap">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp" className="w-5 h-5 object-contain" />
-                +57 3022525442
-              </a>
-            </div>
+            <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs md:text-sm font-bold text-primary dark:text-white hover:text-accent dark:hover:text-accent transition-colors whitespace-nowrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp" className="w-5 h-5 object-contain" />
+              +57 3022525442
+            </a>
           </div>
         </div>
       </nav>
