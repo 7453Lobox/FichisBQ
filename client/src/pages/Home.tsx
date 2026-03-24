@@ -29,20 +29,25 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="sticky top-0 z-30 bg-white dark:bg-primary border-b-4 border-accent shadow-lg">
-        <div className="container py-3 md:py-4 flex items-center justify-between gap-4">
-          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/fichi-logo_3195d514.png" alt="Fichi's BBQ" className="h-16 md:h-20 object-contain" />
-          <div className="hidden md:flex gap-6">
-            <a href="#menu" className="font-semibold text-foreground hover:text-primary transition-colors">
-              Menu
-            </a>
-            <a href="#galeria" className="font-semibold text-foreground hover:text-primary transition-colors">
-              Galeria
-            </a>
-            <a href="#contacto" className="font-semibold text-foreground hover:text-primary transition-colors">
-              Contacto
-            </a>
+        <div className="container py-1 md:py-2 flex items-center justify-between gap-4">
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/fichi-logo_3195d514.png" alt="Fichi's BBQ" className="h-12 md:h-16 object-contain" />
+          
+          <div className="flex-1 text-center hidden md:block">
+            <p className="text-lg md:text-xl font-bold text-primary dark:text-accent italic" style={{fontFamily: 'Georgia, serif'}}>Come Rico, Bebe Rico!!!</p>
           </div>
-          <div className="flex items-center gap-4">
+          
+          <div className="flex items-center gap-6 ml-auto">
+            <div className="hidden lg:flex gap-6">
+              <a href="#menu" className="font-semibold text-foreground dark:text-white hover:text-primary dark:hover:text-accent transition-colors">
+                Menu
+              </a>
+              <a href="#galeria" className="font-semibold text-foreground dark:text-white hover:text-primary dark:hover:text-accent transition-colors">
+                Galeria
+              </a>
+              <a href="#contacto" className="font-semibold text-foreground dark:text-white hover:text-primary dark:hover:text-accent transition-colors">
+                Contacto
+              </a>
+            </div>
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-gray-200 dark:bg-accent text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-accent/80 transition-colors"

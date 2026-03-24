@@ -36,10 +36,10 @@ export default function MenuCard({
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 border-2 border-accent rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group animate-in">
+    <div className="bg-white border-2 border-accent rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group animate-in">
       {/* Image */}
       {imagen && (
-        <div className="relative w-full h-48 md:h-56 overflow-hidden bg-gray-200 dark:bg-gray-700">
+        <div className="relative w-full h-48 md:h-56 overflow-hidden bg-gray-200">
           <img
             src={imagen}
             alt={nombre}
@@ -52,7 +52,7 @@ export default function MenuCard({
       <div className="p-4 md:p-6">
         {/* Header with price */}
         <div className="flex justify-between items-start mb-3 gap-2">
-          <h3 className="font-bold text-base md:text-lg text-foreground flex-1 group-hover:text-primary transition-colors">
+          <h3 className="font-bold text-2xl md:text-3xl text-foreground flex-1 group-hover:text-primary transition-colors">
             {nombre}
           </h3>
           <span className="text-accent font-bold text-lg md:text-xl ml-2 whitespace-nowrap flex-shrink-0">
