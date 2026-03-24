@@ -81,3 +81,7 @@
 - [x] Crear tests unitarios para autenticación de admin (14 tests)
 - [x] Integrar bcrypt para hashing seguro de contraseñas
 - [x] Implementar funciones para cambiar email y WhatsApp
+- [x] Actualizar contraseña inicial hasheada correctamente
+- [x] Implementar recuperación con código de 6 dígitos mostrado en pantalla
+- [x] Agregar botón para copiar código al portapapeles
+- [x] Validación de código antes de permitir reset de contraseña

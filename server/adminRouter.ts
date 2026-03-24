@@ -73,15 +73,18 @@ export const adminRouter = router({
           throw new Error('Admin config not found');
         }
 
+        // Generate a shorter, more user-friendly code (6 digits)
+        const recoveryCode = Math.floor(100000 + Math.random() * 900000).toString();
         const recoveryToken = crypto.randomBytes(32).toString('hex');
         await setRecoveryToken(recoveryToken, 30);
 
-        // In a real app, send email or WhatsApp here
-        // For now, return the token (in production, this would be sent via email/WhatsApp)
+        // Return the code to display on screen
         return {
           success: true,
+          code: recoveryCode,
           token: recoveryToken,
           contact: input.method === 'email' ? config.email : config.whatsapp,
+          method: input.method,
         };
       } catch (error) {
         console.error('Recovery request error:', error);
