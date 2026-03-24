@@ -49,3 +49,10 @@
 - [x] Mejorar contraste de Ubicación, Horario y Teléfono en Contacto
 - [x] Actualizar ubicación de Google Maps con link correcto
 - [x] Agregar sección de Testimonios con reseñas de clientes y ⭐
+
+
+## Cambios Finales Solicitados (Sesión 2)
+
+- [x] Actualizar Git con todos los cambios (imágenes en S3, código en Git)
+- [x] Hacer logo clickeable para ir al inicio de la página
+- [x] Agregar indicador de estado (Abierto/Cerrado) en tiempo real

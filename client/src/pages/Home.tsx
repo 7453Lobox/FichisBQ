@@ -1,6 +1,7 @@
 import MenuCard from '@/components/MenuCard';
 import FloatingCart from '@/components/FloatingCart';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import React from 'react';
 import menuData from '@/lib/menuData.json';
 import { useAuth } from '@/_core/hooks/useAuth';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -19,6 +20,23 @@ export default function Home() {
   const { theme, toggleTheme } = useTheme();
 
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 60000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const isOpen = () => {
+    const day = currentTime.getDay();
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+    const timeInMinutes = hours * 60 + minutes;
+    if (day === 1) return false;
+    const openTime = 16 * 60;
+    const closeTime = 23 * 60;
+    return timeInMinutes >= openTime && timeInMinutes < closeTime;
+  };
 
   const categories = Object.keys(menuData);
   const displayedItems = selectedCategory
@@ -30,14 +48,20 @@ export default function Home() {
       {/* Navigation */}
       <nav className="sticky top-0 z-30 bg-white dark:bg-primary border-b-4 border-accent shadow-lg">
         <div className="container py-1 md:py-2 flex items-center justify-between gap-4">
-          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/fichi-logo_3195d514.png" alt="Fichi's BBQ" className="h-12 md:h-16 object-contain drop-shadow-lg hover:drop-shadow-2xl transition-all duration-300 hover:scale-105" />
+          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="cursor-pointer">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/fichi-logo_3195d514.png" alt="Fichi's BBQ" className="h-12 md:h-16 object-contain drop-shadow-lg hover:drop-shadow-2xl transition-all duration-300 hover:scale-105" />
+          </a>
           
           <div className="flex-1 text-center hidden md:block">
             <p className="text-2xl md:text-3xl font-bold text-primary dark:text-accent italic" style={{fontFamily: 'Georgia, serif'}}>Come Rico, Bebe Rico!!!</p>
           </div>
           
           <div className="flex items-center gap-6 ml-auto">
-            <div className="hidden lg:flex gap-6">
+            <div className="hidden lg:flex gap-6 items-center">
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 dark:bg-accent/30">
+                <span className={`w-3 h-3 rounded-full ${isOpen() ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`}></span>
+                <span className="text-sm font-bold text-foreground dark:text-white">{isOpen() ? 'Abierto' : 'Cerrado'}</span>
+              </div>
               <a href="#menu" className="font-semibold text-foreground dark:text-white hover:text-primary dark:hover:text-accent transition-colors">
                 Menu
               </a>
