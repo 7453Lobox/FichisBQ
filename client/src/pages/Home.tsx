@@ -56,7 +56,7 @@ export default function Home() {
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
             <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs md:text-sm font-bold text-primary dark:text-white hover:text-accent dark:hover:text-accent transition-colors whitespace-nowrap">
-              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp-icon_52c12804.webp" alt="WhatsApp" className="w-5 h-5 object-contain" />
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.537 0-2.852-.503-3.954-1.499C5.821 4.702 5.288 3.415 5.288 2.057 5.288.659 6.56-.572 8.051-.572c1.491 0 2.763 1.231 2.763 2.629 0 1.357-.533 2.644-1.462 3.625-1.102.996-2.417 1.499-3.954 1.499m8.221-1.715c2.6-2.648 4.203-6.591 4.203-10.846 0-8.386-6.82-15.206-15.206-15.206C3.814-27.344-2.006-20.524-2.006-12.138c0 4.255 1.603 8.198 4.203 10.846 2.6 2.648 6.119 4.203 9.003 4.203 2.884 0 6.403-1.555 9.003-4.203" transform="translate(12 12) scale(1)"/></svg>
               +57 3022525442
             </a>
           </div>
@@ -283,7 +283,7 @@ export default function Home() {
               <h3 className="font-bold text-lg md:text-xl mb-2 text-black">Ubicación</h3>
               <p className="font-semibold text-base md:text-lg text-black">Calle 47B # 27 - 06 Local 2</p>
               <p className="font-semibold text-base md:text-lg text-black">Barranquilla, Colombia</p>
-              <p className="text-xs mt-2 text-black font-bold">Haz clic para ver en Google Maps</p>
+              <p className="text-xs mt-2 text-accent font-bold hover:text-accent/80 transition-colors">Haz clic para ver en Google Maps</p>
             </a>
 
             <div className="viking-shield p-8">
@@ -295,11 +295,11 @@ export default function Home() {
 
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">
-                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp-icon-F6XFkQWSLA2GFG2hpMuCf3.png" alt="WhatsApp" className="w-12 h-12 inline-block" />
+                <svg className="w-12 h-12 inline-block" viewBox="0 0 24 24" fill="#25D366" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.537 0-2.852-.503-3.954-1.499C5.821 4.702 5.288 3.415 5.288 2.057 5.288.659 6.56-.572 8.051-.572c1.491 0 2.763 1.231 2.763 2.629 0 1.357-.533 2.644-1.462 3.625-1.102.996-2.417 1.499-3.954 1.499m8.221-1.715c2.6-2.648 4.203-6.591 4.203-10.846 0-8.386-6.82-15.206-15.206-15.206C3.814-27.344-2.006-20.524-2.006-12.138c0 4.255 1.603 8.198 4.203 10.846 2.6 2.648 6.119 4.203 9.003 4.203 2.884 0 6.403-1.555 9.003-4.203" transform="translate(12 12) scale(1)"/></svg>
               </div>
               <h3 className="font-bold text-lg md:text-xl mb-2 text-black">Teléfono</h3>
               <p className="font-semibold text-base md:text-lg text-black">+57 3022525442</p>
-              <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="text-sm mt-2 text-black font-bold hover:underline cursor-pointer block">WhatsApp disponible</a>
+              <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="text-sm mt-2 text-accent font-bold hover:text-accent/80 transition-colors cursor-pointer block">WhatsApp disponible</a>
             </div>
           </div>
 
