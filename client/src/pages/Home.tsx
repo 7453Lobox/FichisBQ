@@ -278,26 +278,28 @@ export default function Home() {
           <h2 className="viking-title text-4xl md:text-5xl mb-12 text-black dark:text-white">Contactanos</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <a href="https://www.google.com/maps/place/fichi's/@10.970249,-74.7930763,18z/data=!4m16!1m9!3m8!1s0x8ef42d5b31357cbb:0x91c6751df5cc8232!2sfichi's!8m2!3d10.9703807!4d-74.791762!9m1!1b1!16s%2Fg%2F11v62whjb6!3m5!1s0x8ef42d5b31357cbb:0x91c6751df5cc8232!8m2!3d10.9703807!4d-74.791762!16s%2Fg%2F11v62whjb6?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="viking-shield p-8 hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <a href="https://www.google.com/maps/place/fichi's/@10.9703195,-74.7917297,3a,75y,344.22h,91.64t/data=!3m7!1e1!3m5!1subFgpyHJFcpBJNwTl4F01g!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.644396754728291%26panoid%3DubFgpyHJFcpBJNwTl4F01g%26yaw%3D344.21720122086276!7i16384!8i8192!4m16!1m9!3m8!1s0x8ef42d5b31357cbb:0x91c6751df5cc8232!2sfichi's!8m2!3d10.9703807!4d-74.791762!9m1!1b1!16s%2Fg%2F11v62whjb6!3m5!1s0x8ef42d5b31357cbb:0x91c6751df5cc8232!8m2!3d10.9703807!4d-74.791762!16s%2Fg%2F11v62whjb6?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="viking-shield p-8 hover:shadow-xl transition-all duration-300 cursor-pointer">
               <div className="text-4xl mb-4">📍</div>
-              <h3 className="font-bold text-lg md:text-xl mb-2 text-black dark:text-white">Ubicación</h3>
-              <p className="font-semibold text-base md:text-lg text-black dark:text-white">Calle 47B # 27 - 06 Local 2</p>
-              <p className="font-semibold text-base md:text-lg text-black dark:text-white">Barranquilla, Colombia</p>
-              <p className="text-xs mt-2 text-primary font-bold">Haz clic para ver en Google Maps</p>
+              <h3 className="font-bold text-lg md:text-xl mb-2 text-black">Ubicación</h3>
+              <p className="font-semibold text-base md:text-lg text-black">Calle 47B # 27 - 06 Local 2</p>
+              <p className="font-semibold text-base md:text-lg text-black">Barranquilla, Colombia</p>
+              <p className="text-xs mt-2 text-black font-bold">Haz clic para ver en Google Maps</p>
             </a>
 
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">⏰</div>
-              <h3 className="font-bold text-lg md:text-xl mb-2 text-black dark:text-white">Horario</h3>
-              <p className="font-semibold text-base md:text-lg text-black dark:text-white">Martes a Domingo</p>
-              <p className="font-semibold text-base md:text-lg text-black dark:text-white">4:00 PM - 11:00 PM</p>
+              <h3 className="font-bold text-lg md:text-xl mb-2 text-black">Horario</h3>
+              <p className="font-semibold text-base md:text-lg text-black">Martes a Domingo</p>
+              <p className="font-semibold text-base md:text-lg text-black">4:00 PM - 11:00 PM</p>
             </div>
 
             <div className="viking-shield p-8">
-              <div className="text-4xl mb-4">📱</div>
-              <h3 className="font-bold text-lg md:text-xl mb-2 text-black dark:text-white">Teléfono</h3>
-              <p className="font-semibold text-base md:text-lg text-black dark:text-white">+57 3022525442</p>
-              <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="text-sm mt-2 text-primary font-bold hover:underline cursor-pointer block">WhatsApp disponible</a>
+              <div className="text-4xl mb-4">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp-icon-F6XFkQWSLA2GFG2hpMuCf3.png" alt="WhatsApp" className="w-12 h-12 inline-block" />
+              </div>
+              <h3 className="font-bold text-lg md:text-xl mb-2 text-black">Teléfono</h3>
+              <p className="font-semibold text-base md:text-lg text-black">+57 3022525442</p>
+              <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="text-sm mt-2 text-black font-bold hover:underline cursor-pointer block">WhatsApp disponible</a>
             </div>
           </div>
 
