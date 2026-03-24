@@ -13,7 +13,8 @@
     {"nombre": "Bollo Limpio", "precio": 2000}
   ],
   "Especiales": [
-    {"nombre": "Patacón", "descripcion": "Proteína de tu elección (solo pollo, solo carne o mixta), Patacón de plátano verde, Guacamole, Pico de gallo, Papa chongo, Queso mozarela doble crema gratinado.", "precio": 20000}
+    {"nombre": "Patacón", "descripcion": "Proteína de tu elección (solo pollo, solo carne o mixta), Patacón de plátano verde, Guacamole, Pico de gallo, Papa chongo, Queso mozarela doble crema gratinado.", "precio": 20000},
+    {"nombre": "Fichi's Suprema", "descripcion": "Papas a la francesa, Carne desmechada, Pollo desmechado, Chorizo de ternera, Tocineta Premium, Salchicha súper, Queso mozarela doble crema gratinado, Maíz, Lechuga, Papa chongo.", "precio": 40000}
   ],
   "Salchipapas y Patatas": [
     {"nombre": "Sencilla", "descripcion": "Papas a la francesa, Salchicha, Queso costeño, Lechuga, Papa chongo.", "precio": 11000},
@@ -25,8 +26,7 @@
     {"nombre": "Pollo BBQ", "descripcion": "Papas a la francesa, Trozos de pechuga en salsa BBQ especial, Queso costeño rallado, Lechuga, Papa chongo.", "precio": 21000},
     {"nombre": "Mecha (Desmechada)", "descripcion": "Papas a la francesa, Queso costeño rallado, Lechuga, Papa chongo, Proteína de tu elección (solo pollo, solo carne o mixta).", "precio": 20000},
     {"nombre": "Puebla (Mexicanas)", "descripcion": "Papas a la francesa, Pechuga en trozos, Salchicha súper, Sour cream, Guacamole, Pico de gallo, Lechuga, Papa chongo.", "precio": 21000},
-    {"nombre": "Americanas", "descripcion": "Papas a la francesa, Tocineta Premium en trozos, Queso cheddar, Aros de cebolla.", "precio": 14000},
-    {"nombre": "Fichi's Suprema", "descripcion": "Papas a la francesa, Carne desmechada, Pollo desmechado, Chorizo de ternera, Tocineta Premium, Salchicha súper, Queso mozarela doble crema gratinado, Maíz, Lechuga, Papa chongo.", "precio": 40000}
+    {"nombre": "Americanas", "descripcion": "Papas a la francesa, Tocineta Premium en trozos, Queso cheddar, Aros de cebolla.", "precio": 14000}
   ],
   "Patatas Mini": [
     {"nombre": "Mini Fichi's Gratinada", "descripcion": "Papas a la francesa, Chorizo de ternera, Tocineta Premium, Salchicha súper, Queso mozarela doble crema gratinado, Maíz, Lechuga, Papa chongo.", "precio": 16000},
@@ -71,6 +71,9 @@
   ],
   "Carnes": [
     {"nombre": "Pechuga a la plancha", "descripcion": "250 GR Pechuga, Ensalada verde (lechuga, zanahoria, tomate, vinagreta), Papas a la francesa.", "precio": 20000},
-    {"nombre": "Pechuga Gratinada", "descripcion": "250 GR Pechuga a la plancha, Queso mozarela doble crema gratinado, Ensalada verde (lechuga, zanahoria, tomate, vinagreta), Papas a la francesa.", "precio": 23000}
+    {"nombre": "Pechuga Gratinada", "descripcion": "250 GR Pechuga a la plancha, Queso mozarela doble crema gratinado, Ensalada verde (lechuga, zanahoria, tomate, vinagreta), Papas a la francesa.", "precio": 23000},
+    {"nombre": "Cerdo a la Plancha", "descripcion": "250 GR Cerdo, Ensalada verde (lechuga, zanahoria, tomate, vinagreta), Papas a la francesa.", "precio": 21000},
+    {"nombre": "Punta Gorda a la Plancha", "descripcion": "250 GR Punta Gorda, Ensalada verde (lechuga, zanahoria, tomate, vinagreta), Papas a la francesa.", "precio": 23000}
   ]
 }
+
