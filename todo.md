@@ -41,3 +41,11 @@
 - [ ] Probar todas las imágenes generadas cargan correctamente
 - [ ] Guardar checkpoint final
 - [ ] Entregar a usuario
+
+## Mejoras Finales Solicitadas
+
+- [x] Destacar el logo con efecto de sombra, brillo o animación
+- [x] Aumentar tamaño del slogan "Come Rico, Bebe Rico!!!"
+- [x] Mejorar contraste de Ubicación, Horario y Teléfono en Contacto
+- [x] Actualizar ubicación de Google Maps con link correcto
+- [x] Agregar sección de Testimonios con reseñas de clientes y ⭐

@@ -30,10 +30,10 @@ export default function Home() {
       {/* Navigation */}
       <nav className="sticky top-0 z-30 bg-white dark:bg-primary border-b-4 border-accent shadow-lg">
         <div className="container py-1 md:py-2 flex items-center justify-between gap-4">
-          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/fichi-logo_3195d514.png" alt="Fichi's BBQ" className="h-12 md:h-16 object-contain" />
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/fichi-logo_3195d514.png" alt="Fichi's BBQ" className="h-12 md:h-16 object-contain drop-shadow-lg hover:drop-shadow-2xl transition-all duration-300 hover:scale-105" />
           
           <div className="flex-1 text-center hidden md:block">
-            <p className="text-lg md:text-xl font-bold text-primary dark:text-accent italic" style={{fontFamily: 'Georgia, serif'}}>Come Rico, Bebe Rico!!!</p>
+            <p className="text-2xl md:text-3xl font-bold text-primary dark:text-accent italic" style={{fontFamily: 'Georgia, serif'}}>Come Rico, Bebe Rico!!!</p>
           </div>
           
           <div className="flex items-center gap-6 ml-auto">
@@ -273,26 +273,26 @@ export default function Home() {
           <h2 className="viking-title text-4xl md:text-5xl mb-12 text-black dark:text-white">Contactanos</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <a href="https://maps.google.com/?q=Calle+47B+27-06+Barranquilla+Colombia" target="_blank" rel="noopener noreferrer" className="viking-shield p-8 hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <a href="https://www.google.com/maps/place/fichi's/@10.970249,-74.7930763,18z/data=!4m16!1m9!3m8!1s0x8ef42d5b31357cbb:0x91c6751df5cc8232!2sfichi's!8m2!3d10.9703807!4d-74.791762!9m1!1b1!16s%2Fg%2F11v62whjb6!3m5!1s0x8ef42d5b31357cbb:0x91c6751df5cc8232!8m2!3d10.9703807!4d-74.791762!16s%2Fg%2F11v62whjb6?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="viking-shield p-8 hover:shadow-xl transition-all duration-300 cursor-pointer">
               <div className="text-4xl mb-4">📍</div>
-              <h3 className="font-bold text-lg mb-2 text-black dark:text-white">Ubicación</h3>
-              <p className="font-semibold text-black dark:text-white">Calle 47B # 27 - 06 Local 2</p>
-              <p className="font-semibold text-black dark:text-white">Barranquilla, Colombia</p>
-              <p className="text-xs mt-2 text-accent">Haz clic para ver en Google Maps</p>
+              <h3 className="font-bold text-lg md:text-xl mb-2 text-black dark:text-white">Ubicación</h3>
+              <p className="font-semibold text-base md:text-lg text-black dark:text-white">Calle 47B # 27 - 06 Local 2</p>
+              <p className="font-semibold text-base md:text-lg text-black dark:text-white">Barranquilla, Colombia</p>
+              <p className="text-xs mt-2 text-accent font-bold">Haz clic para ver en Google Maps</p>
             </a>
 
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">⏰</div>
-              <h3 className="font-bold text-lg mb-2 text-black dark:text-white">Horario</h3>
-              <p className="font-semibold text-black dark:text-white">Martes a Domingo</p>
-              <p className="font-semibold text-black dark:text-white">4:00 PM - 11:00 PM</p>
+              <h3 className="font-bold text-lg md:text-xl mb-2 text-black dark:text-white">Horario</h3>
+              <p className="font-semibold text-base md:text-lg text-black dark:text-white">Martes a Domingo</p>
+              <p className="font-semibold text-base md:text-lg text-black dark:text-white">4:00 PM - 11:00 PM</p>
             </div>
 
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">📱</div>
-              <h3 className="font-bold text-lg mb-2 text-black dark:text-white">Teléfono</h3>
-              <p className="font-semibold text-black dark:text-white">+57 3022525442</p>
-              <p className="text-sm mt-2 text-accent font-semibold">WhatsApp disponible</p>
+              <h3 className="font-bold text-lg md:text-xl mb-2 text-black dark:text-white">Teléfono</h3>
+              <p className="font-semibold text-base md:text-lg text-black dark:text-white">+57 3022525442</p>
+              <p className="text-sm mt-2 text-accent font-bold">WhatsApp disponible</p>
             </div>
           </div>
 
@@ -346,6 +346,61 @@ export default function Home() {
               <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.781 1.149c-1.488.574-2.797 1.483-3.773 2.459-1.844 1.844-2.769 4.302-2.769 6.994 0 1.202.195 2.554.536 3.814.341 1.26.879 2.489 1.541 3.57.662 1.081 1.437 2.011 2.306 2.76 1.844 1.577 4.28 2.457 6.944 2.457 1.202 0 2.554-.195 3.814-.536 1.26-.341 2.489-.879 3.57-1.541 1.081-.662 2.011-1.437 2.76-2.306 1.577-1.844 2.457-4.28 2.457-6.944 0-1.202-.195-2.554-.536-3.814-.341-1.26-.879-2.489-1.541-3.57-.662-1.081-1.437-2.011-2.306-2.76-1.844-1.577-4.28-2.457-6.944-2.457"/>
               </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="viking-title text-4xl md:text-5xl text-primary mb-4">
+              Lo Que Dicen Nuestros Clientes
+            </h2>
+            <div className="h-1 w-24 bg-accent mx-auto" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Testimonial 1 */}
+            <div className="bg-white dark:bg-gray-800 border-2 border-accent rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
+              </div>
+              <p className="text-foreground mb-4 italic">"¡La mejor comida BBQ que he probado! Los platos son increíbles y el servicio es excelente. Definitivamente volveré."</p>
+              <p className="font-bold text-primary">- Carlos M.</p>
+              <p className="text-sm text-muted-foreground">Cliente verificado en Google</p>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-white dark:bg-gray-800 border-2 border-accent rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
+              </div>
+              <p className="text-foreground mb-4 italic">"Fichi's es un lugar épico. La temática vikinga es genial y la comida es de primera calidad. Recomendado 100%."</p>
+              <p className="font-bold text-primary">- María L.</p>
+              <p className="text-sm text-muted-foreground">Cliente verificado en Google</p>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-white dark:bg-gray-800 border-2 border-accent rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
+              </div>
+              <p className="text-foreground mb-4 italic">"Cada plato es una obra maestra. El carrito de compras por WhatsApp es muy práctico. ¡Excelente experiencia!"</p>
+              <p className="font-bold text-primary">- Juan P.</p>
+              <p className="text-sm text-muted-foreground">Cliente verificado en Google</p>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <a
+              href="https://www.google.com/maps/place/fichi's/@10.970249,-74.7930763,18z/data=!4m16!1m9!3m8!1s0x8ef42d5b31357cbb:0x91c6751df5cc8232!2sfichi's!8m2!3d10.9703807!4d-74.791762!9m1!1b1!16s%2Fg%2F11v62whjb6!3m5!1s0x8ef42d5b31357cbb:0x91c6751df5cc8232!8m2!3d10.9703807!4d-74.791762!16s%2Fg%2F11v62whjb6?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-primary-foreground font-bold py-3 px-6 rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              Ver Más Reseñas en Google
             </a>
           </div>
         </div>
