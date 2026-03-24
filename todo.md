@@ -56,3 +56,14 @@
 - [x] Actualizar Git con todos los cambios (imágenes en S3, código en Git)
 - [x] Hacer logo clickeable para ir al inicio de la página
 - [x] Agregar indicador de estado (Abierto/Cerrado) en tiempo real
+
+
+## Sistema de Notificaciones de Pedidos (Sesión 3)
+
+- [x] Integrar guardado de pedidos en BD cuando se envían por WhatsApp
+- [x] Crear página Admin para ver pedidos en tiempo real (polling cada 5 segundos)
+- [x] Agregar funcionalidad para cambiar estado de pedidos (Nuevo → En preparación → Listo → Entregado)
+- [x] Crear tests unitarios para procedimientos de órdenes
+- [x] Agregar link a panel de administración de pedidos en navegación (solo para admins)
+- [x] Implementar colección de datos del cliente (nombre y teléfono) antes de enviar por WhatsApp
+- [x] Limpiar carrito después de enviar pedido exitosamente

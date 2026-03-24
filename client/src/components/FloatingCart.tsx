@@ -1,6 +1,8 @@
 import { useCart } from '@/contexts/CartContext';
 import { ShoppingCart, X, Trash2 } from 'lucide-react';
 import { useState } from 'react';
+import { trpc } from '@/lib/trpc';
+import { toast } from 'sonner';
 
 /**
  * Floating Cart Component
@@ -38,11 +40,52 @@ export default function FloatingCart() {
     return message;
   };
 
-  const handleWhatsAppClick = () => {
-    const message = generateWhatsAppMessage();
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
+  const createOrderMutation = trpc.orders.create.useMutation();
+
+  const handleWhatsAppClick = async () => {
+    if (items.length === 0) {
+      toast.error('Tu carrito está vacío');
+      return;
+    }
+
+    // Collect customer info
+    const customerName = prompt('¿Cuál es tu nombre?');
+    if (!customerName) return;
+
+    const customerPhone = prompt('¿Cuál es tu número de teléfono? (ej: 573001234567)');
+    if (!customerPhone) return;
+
+    try {
+      // Save order to database
+      await createOrderMutation.mutateAsync({
+        customerName,
+        customerPhone,
+        items: JSON.stringify(items.map(item => ({
+          nombre: item.nombre,
+          cantidad: item.cantidad,
+          precio: item.precio,
+          categoria: item.categoria,
+        }))),
+        totalPrice: Math.round(total * 100), // Convert to cents
+        paymentMethod: 'whatsapp',
+        notes: '',
+      });
+
+      toast.success('Pedido guardado! Abriendo WhatsApp...');
+
+      // Generate and send WhatsApp message
+      const message = generateWhatsAppMessage();
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+      window.open(whatsappUrl, '_blank');
+
+      // Clear cart after successful order
+      clearCart();
+      setIsOpen(false);
+    } catch (error) {
+      console.error('Error creating order:', error);
+      toast.error('Error al guardar el pedido');
+    }
   };
 
   return (
@@ -144,9 +187,10 @@ export default function FloatingCart() {
                 <div className="space-y-2">
                   <button
                     onClick={handleWhatsAppClick}
-                    className="w-full bg-green-600 text-white font-bold py-3 rounded hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
+                    disabled={createOrderMutation.isPending}
+                    className="w-full bg-green-600 text-white font-bold py-3 rounded hover:bg-green-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Enviar por WhatsApp
+                    {createOrderMutation.isPending ? 'Guardando...' : 'Enviar por WhatsApp'}
                   </button>
                   <button
                     onClick={() => clearCart()}

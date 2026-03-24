@@ -3,7 +3,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { z } from "zod";
-import { getAllGalleryImages, addGalleryImage, deleteGalleryImage } from "./db";
+import { getAllGalleryImages, addGalleryImage, deleteGalleryImage, createOrder, getAllOrders, updateOrderStatus } from "./db";
 import { storagePut } from "./storage";
 
 export const appRouter = router({
@@ -71,6 +71,58 @@ export const appRouter = router({
 
         await deleteGalleryImage(input.id);
         return { success: true };
+      }),
+  }),
+
+  orders: router({
+    create: publicProcedure
+      .input(
+        z.object({
+          customerName: z.string().min(1),
+          customerPhone: z.string().min(1),
+          items: z.string(),
+          totalPrice: z.number().min(0),
+          paymentMethod: z.string().optional(),
+          notes: z.string().optional(),
+        })
+      )
+      .mutation(async ({ input }) => {
+        try {
+          const result = await createOrder({
+            customerName: input.customerName,
+            customerPhone: input.customerPhone,
+            items: input.items,
+            totalPrice: input.totalPrice,
+            paymentMethod: input.paymentMethod,
+            notes: input.notes,
+          });
+          return { success: true, message: 'Order created successfully' };
+        } catch (error) {
+          console.error('Order creation error:', error);
+          throw new Error('Failed to create order');
+        }
+      }),
+    list: publicProcedure.query(async () => {
+      return await getAllOrders();
+    }),
+    updateStatus: protectedProcedure
+      .input(
+        z.object({
+          orderId: z.number(),
+          status: z.enum(["nuevo", "en_preparacion", "listo", "entregado", "cancelado"]),
+        })
+      )
+      .mutation(async ({ input, ctx }) => {
+        if (ctx.user.role !== 'admin') {
+          throw new Error('Only admins can update order status');
+        }
+        try {
+          await updateOrderStatus(input.orderId, input.status);
+          return { success: true };
+        } catch (error) {
+          console.error('Order update error:', error);
+          throw new Error('Failed to update order');
+        }
       }),
   }),
 });

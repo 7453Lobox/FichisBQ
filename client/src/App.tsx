@@ -7,6 +7,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { CartProvider } from "./contexts/CartContext";
 import Home from "./pages/Home";
 import AdminGallery from "./pages/AdminGallery";
+import AdminOrders from "./pages/AdminOrders";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -14,6 +15,7 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/admin/gallery"} component={AdminGallery} />
+      <Route path={"/admin/orders"} component={AdminOrders} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

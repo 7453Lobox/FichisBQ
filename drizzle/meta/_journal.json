@@ -15,6 +15,13 @@
       "when": 1774321312828,
       "tag": "0001_late_maelstrom",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1774335677109,
+      "tag": "0002_mean_raza",
+      "breakpoints": true
     }
   ]
 }

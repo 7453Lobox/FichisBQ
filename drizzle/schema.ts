@@ -41,4 +41,21 @@ export const galleryImages = mysqlTable("galleryImages", {
 export type GalleryImage = typeof galleryImages.$inferSelect;
 export type InsertGalleryImage = typeof galleryImages.$inferInsert;
 
+// Orders table for storing customer orders
+export const orders = mysqlTable("orders", {
+  id: int("id").autoincrement().primaryKey(),
+  customerName: varchar("customerName", { length: 255 }).notNull(),
+  customerPhone: varchar("customerPhone", { length: 20 }).notNull(),
+  items: text("items").notNull(), // JSON array of {name, quantity, price}
+  totalPrice: int("totalPrice").notNull(), // in cents
+  paymentMethod: varchar("paymentMethod", { length: 50 }), // "efectivo", "tarjeta", "nequi", etc.
+  status: mysqlEnum("status", ["nuevo", "en_preparacion", "listo", "entregado", "cancelado"]).default("nuevo").notNull(),
+  notes: text("notes"), // Special instructions
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Order = typeof orders.$inferSelect;
+export type InsertOrder = typeof orders.$inferInsert;
+
 // TODO: Add your tables here

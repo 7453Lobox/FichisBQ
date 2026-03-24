@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, galleryImages, InsertGalleryImage } from "../drizzle/schema";
+import { InsertUser, users, galleryImages, InsertGalleryImage, orders, InsertOrder, Order } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -132,6 +132,69 @@ export async function deleteGalleryImage(id: number) {
     return await db.delete(galleryImages).where(eq(galleryImages.id, id));
   } catch (error) {
     console.error("[Database] Failed to delete gallery image:", error);
+    throw error;
+  }
+}
+
+// Orders queries
+export async function createOrder(order: InsertOrder) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot create order: database not available");
+    return null;
+  }
+
+  try {
+    const result = await db.insert(orders).values(order);
+    return result;
+  } catch (error) {
+    console.error("[Database] Failed to create order:", error);
+    throw error;
+  }
+}
+
+export async function getAllOrders() {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get orders: database not available");
+    return [];
+  }
+
+  try {
+    return await db.select().from(orders).orderBy(desc(orders.createdAt));
+  } catch (error) {
+    console.error("[Database] Failed to get orders:", error);
+    throw error;
+  }
+}
+
+export async function getOrderById(id: number) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get order: database not available");
+    return null;
+  }
+
+  try {
+    const result = await db.select().from(orders).where(eq(orders.id, id)).limit(1);
+    return result.length > 0 ? result[0] : null;
+  } catch (error) {
+    console.error("[Database] Failed to get order:", error);
+    throw error;
+  }
+}
+
+export async function updateOrderStatus(id: number, status: Order["status"]) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot update order: database not available");
+    return null;
+  }
+
+  try {
+    return await db.update(orders).set({ status }).where(eq(orders.id, id));
+  } catch (error) {
+    console.error("[Database] Failed to update order:", error);
     throw error;
   }
 }
