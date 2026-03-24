@@ -2,6 +2,7 @@ import MenuCard from '@/components/MenuCard';
 import FloatingCart from '@/components/FloatingCart';
 import { useState } from 'react';
 import menuData from '@/lib/menuData.json';
+import { useAuth } from '@/_core/hooks/useAuth';
 
 /**
  * Home Page - Fichi's BBQ Landing Page
@@ -9,6 +10,10 @@ import menuData from '@/lib/menuData.json';
  * Features: Hero, Menu, Gallery, Contact, Shopping Cart
  */
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const categories = Object.keys(menuData);
@@ -34,7 +39,7 @@ export default function Home() {
             </a>
           </div>
           <div className="text-xs md:text-sm font-bold text-primary whitespace-nowrap">
-            +57 3007881212
+            +57 3022525442
           </div>
         </div>
       </nav>
@@ -265,14 +270,14 @@ export default function Home() {
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">📱</div>
               <h3 className="font-bold text-lg mb-2">Teléfono</h3>
-              <p>+57 3007881212</p>
+              <p>+57 3022525442</p>
               <p className="text-sm mt-2">WhatsApp disponible</p>
             </div>
           </div>
 
           <div className="mt-12">
             <a
-              href="https://wa.me/573007881212"
+              href="https://wa.me/573022525442"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-green-600 text-white font-bold py-4 px-8 rounded-lg hover:bg-green-700 transition-all duration-300 hover:-translate-y-1"

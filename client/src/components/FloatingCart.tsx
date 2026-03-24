@@ -11,7 +11,7 @@ export default function FloatingCart() {
   const { items, removeItem, updateQuantity, total, clearCart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
 
-  const WHATSAPP_NUMBER = '573007881212';
+  const WHATSAPP_NUMBER = '573022525442';
   const RESTAURANT_NAME = "Fichi's BBQ";
 
   const generateWhatsAppMessage = () => {
