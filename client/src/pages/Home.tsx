@@ -157,16 +157,21 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+            {[
+              { id: 1, src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/gallery-eating-1-29mCR4wAsXFDjizF7bK5Xf.webp', alt: 'Mujer disfrutando carnes BBQ' },
+              { id: 2, src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/gallery-eating-2-5DCFg2GaaDFkUomEUY9uKZ.webp', alt: 'Amigos disfrutando hamburguesas' },
+              { id: 3, src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/gallery-eating-3-4zi2eXbdsdpngN7hXBdAQJ.webp', alt: 'Hombre disfrutando pechuga a la plancha' },
+              { id: 4, src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/gallery-eating-4-NMJ5tXFhZMnQpwqaqJ4fWb.webp', alt: 'Pareja disfrutando festín BBQ' },
+              { id: 5, src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/gallery-eating-5-9HC6kUUmkBAu7ccZANwvCh.webp', alt: 'Hombre mordiendo hamburguesa jugosa' },
+              { id: 6, src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/gallery-eating-6-2nTNnGBr8azByhazqssSAp.webp', alt: 'Familia disfrutando salchipapas' },
+            ].map((photo) => (
+              <div key={photo.id} className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
                 <div className="relative aspect-square bg-muted overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-6xl mb-4">🍖</div>
-                      <p className="text-foreground font-bold">Foto {i}</p>
-                      <p className="text-sm text-muted-foreground">Momentos épicos</p>
-                    </div>
-                  </div>
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
               </div>
             ))}
@@ -278,7 +283,7 @@ export default function Home() {
               <h3 className="font-bold text-lg md:text-xl mb-2 text-black dark:text-white">Ubicación</h3>
               <p className="font-semibold text-base md:text-lg text-black dark:text-white">Calle 47B # 27 - 06 Local 2</p>
               <p className="font-semibold text-base md:text-lg text-black dark:text-white">Barranquilla, Colombia</p>
-              <p className="text-xs mt-2 text-accent font-bold">Haz clic para ver en Google Maps</p>
+              <p className="text-xs mt-2 text-primary font-bold">Haz clic para ver en Google Maps</p>
             </a>
 
             <div className="viking-shield p-8">
@@ -292,7 +297,7 @@ export default function Home() {
               <div className="text-4xl mb-4">📱</div>
               <h3 className="font-bold text-lg md:text-xl mb-2 text-black dark:text-white">Teléfono</h3>
               <p className="font-semibold text-base md:text-lg text-black dark:text-white">+57 3022525442</p>
-              <p className="text-sm mt-2 text-accent font-bold">WhatsApp disponible</p>
+              <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="text-sm mt-2 text-primary font-bold hover:underline cursor-pointer block">WhatsApp disponible</a>
             </div>
           </div>
 
@@ -361,33 +366,33 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
-            <div className="bg-white dark:bg-gray-800 border-2 border-accent rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+            <div className="bg-white border-2 border-accent rounded-lg p-6 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
               </div>
-              <p className="text-foreground mb-4 italic">"¡La mejor comida BBQ que he probado! Los platos son increíbles y el servicio es excelente. Definitivamente volveré."</p>
-              <p className="font-bold text-primary">- Carlos M.</p>
-              <p className="text-sm text-muted-foreground">Cliente verificado en Google</p>
+              <p className="text-black mb-4 italic">"¡La mejor comida BBQ que he probado! Los platos son increíbles y el servicio es excelente. Definitivamente volveré."</p>
+              <p className="font-bold text-black">- Carlos M.</p>
+              <p className="text-sm text-gray-600">Cliente verificado en Google</p>
             </div>
 
             {/* Testimonial 2 */}
-            <div className="bg-white dark:bg-gray-800 border-2 border-accent rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+            <div className="bg-white border-2 border-accent rounded-lg p-6 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
               </div>
-              <p className="text-foreground mb-4 italic">"Fichi's es un lugar épico. La temática vikinga es genial y la comida es de primera calidad. Recomendado 100%."</p>
-              <p className="font-bold text-primary">- María L.</p>
-              <p className="text-sm text-muted-foreground">Cliente verificado en Google</p>
+              <p className="text-black mb-4 italic">"Fichi's es un lugar épico. La temática vikinga es genial y la comida es de primera calidad. Recomendado 100%."</p>
+              <p className="font-bold text-black">- María L.</p>
+              <p className="text-sm text-gray-600">Cliente verificado en Google</p>
             </div>
 
             {/* Testimonial 3 */}
-            <div className="bg-white dark:bg-gray-800 border-2 border-accent rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+            <div className="bg-white border-2 border-accent rounded-lg p-6 hover:shadow-lg transition-all duration-300">
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-yellow-500">⭐⭐⭐⭐⭐</span>
               </div>
-              <p className="text-foreground mb-4 italic">"Cada plato es una obra maestra. El carrito de compras por WhatsApp es muy práctico. ¡Excelente experiencia!"</p>
-              <p className="font-bold text-primary">- Juan P.</p>
-              <p className="text-sm text-muted-foreground">Cliente verificado en Google</p>
+              <p className="text-black mb-4 italic">"Cada plato es una obra maestra. El carrito de compras por WhatsApp es muy práctico. ¡Excelente experiencia!"</p>
+              <p className="font-bold text-black">- Juan P.</p>
+              <p className="text-sm text-gray-600">Cliente verificado en Google</p>
             </div>
           </div>
 
