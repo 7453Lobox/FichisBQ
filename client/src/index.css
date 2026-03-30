@@ -7,7 +7,9 @@
 @custom-variant dark (&:is(.dark *));
 
 html {
-  background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/MejoradaChatGPT_21319aab.png');
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/MejoradaChatGPT_21319aab.png');
   background-attachment: fixed;
   background-size: auto;
 }
@@ -119,10 +121,10 @@ html body {
   --chart-4: #A0452E;
   --chart-5: #6B1F1F;
   --background: transparent;
-  --foreground: #F5F1E8;
-  --card: rgba(255, 255, 255, 0.95);
+  --foreground: #2A2A2A;
+  --card: #FFFFFF;
   --card-foreground: #2A2A2A;
-  --popover: rgba(255, 255, 255, 0.95);
+  --popover: #FFFFFF;
   --popover-foreground: #2A2A2A;
   --secondary: #D4AF37;
   --secondary-foreground: #2A2A2A;
