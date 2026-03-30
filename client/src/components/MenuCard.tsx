@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { useCart } from '@/contexts/CartContext';
 import { ShoppingCart } from 'lucide-react';
+import ModificationsModal from './ModificationsModal';
+import { extractIngredientsFromDescription } from '@/lib/ingredientsPrices';
 
 interface MenuCardProps {
   id: string;
@@ -24,14 +27,22 @@ export default function MenuCard({
   imagen,
 }: MenuCardProps) {
   const { addItem } = useCart();
+  const [showModifications, setShowModifications] = useState(false);
+  const baseIngredients = extractIngredientsFromDescription(descripcion);
 
   const handleAddToCart = () => {
+    setShowModifications(true);
+  };
+
+  const handleSaveModifications = (modifications: any[], totalPrice: number) => {
     addItem({
       id,
       nombre,
-      precio,
+      precio: totalPrice,
       cantidad: 1,
       categoria,
+      modifications,
+      basePrice: precio,
     });
   };
 
@@ -77,6 +88,17 @@ export default function MenuCard({
           </button>
         </div>
       </div>
+
+      {/* Modifications Modal */}
+      <ModificationsModal
+        isOpen={showModifications}
+        onClose={() => setShowModifications(false)}
+        onSave={handleSaveModifications}
+        dishName={nombre}
+        category={categoria}
+        basePrice={precio}
+        baseIngredients={baseIngredients}
+      />
     </div>
   );
 }

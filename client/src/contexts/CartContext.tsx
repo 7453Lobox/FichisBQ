@@ -1,11 +1,19 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
+export interface Modification {
+  ingredient: string;
+  type: 'added' | 'removed';
+  price: number;
+}
+
 export interface CartItem {
   id: string;
   nombre: string;
   precio: number;
   cantidad: number;
   categoria: string;
+  modifications?: Modification[];
+  basePrice?: number;
 }
 
 interface CartContextType {
@@ -24,10 +32,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const addItem = (newItem: CartItem) => {
     setItems((prevItems) => {
-      const existingItem = prevItems.find((item) => item.id === newItem.id);
+      if (newItem.modifications && newItem.modifications.length > 0) {
+        return [...prevItems, newItem];
+      }
+      const existingItem = prevItems.find(
+        (item) => item.id === newItem.id && !item.modifications
+      );
       if (existingItem) {
         return prevItems.map((item) =>
-          item.id === newItem.id
+          item.id === newItem.id && !item.modifications
             ? { ...item, cantidad: item.cantidad + newItem.cantidad }
             : item
         );

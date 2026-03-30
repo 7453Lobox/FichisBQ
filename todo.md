@@ -105,3 +105,15 @@
 - [x] Platos distribuidos centrados dentro del modal
 - [x] Categorías esperan en fondo mientras usuario elige
 - [x] Probar y guardar checkpoint
+
+
+## Sistema de Modificaciones de Pedidos (Sesión 8)
+
+- [x] Actualizar estructura de datos: agregar ingredientes y precios a cada plato
+- [x] Crear componente ModificationsModal para agregar/quitar ingredientes
+- [x] Integrar ModificationsModal al carrito flotante
+- [x] Actualizar lógica de carrito para guardar modificaciones
+- [x] Filtrar ingredientes según tipo de plato
+- [x] Actualizar precio con adicionales
+- [ ] Permitir modificar desde el carrito
+- [ ] Probar flujo completo y guardar checkpoint
