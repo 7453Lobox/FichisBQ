@@ -88,7 +88,7 @@
 }
 
 .dark {
-  /* Dark mode not used for this design - keeping light theme */
+  /* Dark mode with pattern background */
   --viking-red: #8B2E2E;
   --viking-gold: #D4AF37;
   --viking-dark: #2A2A2A;
@@ -126,6 +126,12 @@
   --sidebar-accent-foreground: #2A2A2A;
   --sidebar-border: #D4AF37;
   --sidebar-ring: #D4AF37;
+}
+
+.dark body {
+  background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/MejoradaChatGPT_21319aab.png');
+  background-attachment: fixed;
+  background-size: auto;
 }
 
 @layer base {
