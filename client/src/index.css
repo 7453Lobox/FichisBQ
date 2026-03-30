@@ -20,7 +20,7 @@ html::before {
   background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/MejoradaChatGPT_21319aab.png');
   background-attachment: fixed;
   background-size: auto;
-  opacity: 0.6;
+  opacity: 0.8;
   pointer-events: none;
   z-index: -1;
 }
