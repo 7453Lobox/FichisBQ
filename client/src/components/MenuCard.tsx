@@ -61,7 +61,7 @@ export default function MenuCard({
         </div>
 
         {/* Description */}
-        <p className="text-xs md:text-sm text-muted-foreground mb-4 line-clamp-2">
+        <p className="text-xs md:text-sm text-foreground/80 mb-4 line-clamp-2">
           {descripcion}
         </p>
 
