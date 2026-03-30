@@ -85,3 +85,13 @@
 - [x] Implementar recuperación con código de 6 dígitos mostrado en pantalla
 - [x] Agregar botón para copiar código al portapapeles
 - [x] Validación de código antes de permitir reset de contraseña
+
+
+## Reorganización del Menú - Tarjetas de Categorías (Sesión 6)
+
+- [x] Actualizar estructura del menú JSON: reorganizar categorías y mover Sandwich Gratinados
+- [x] Crear componente CategoryCard para mostrar categorías como tarjetas
+- [x] Actualizar componente MenuCard para mostrar descripción y carrito
+- [x] Actualizar página Home con nueva lógica de menú
+- [x] Eliminar botón "Todos"
+- [x] Probar responsividad y guardar checkpoint

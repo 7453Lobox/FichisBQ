@@ -1,5 +1,6 @@
 import MenuCard from '@/components/MenuCard';
 import FloatingCart from '@/components/FloatingCart';
+import CategoryCard from '@/components/CategoryCard';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import menuData from '@/lib/menuData.json';
@@ -19,7 +20,6 @@ export default function Home() {
   let { user, loading, error, isAuthenticated, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
 
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -38,10 +38,21 @@ export default function Home() {
     return timeInMinutes >= openTime && timeInMinutes < closeTime;
   };
 
-  const categories = Object.keys(menuData);
-  const displayedItems = selectedCategory
-    ? menuData[selectedCategory as keyof typeof menuData] || []
-    : Object.values(menuData).flat();
+  const getCategoryImage = (categoryName: string): string => {
+    const imageMap: { [key: string]: string } = {
+      'Hamburguesas': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/hamburguesa-gourmet-viking.webp',
+      'Perros Calientes': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/perro-caliente-viking.webp',
+      'Sandwich Panini': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/sandwich-panini-viking.webp',
+      'Salchipapas y Patatas': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/salchipapas-viking.webp',
+      'Patatas Mini': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/patatas-mini-viking.webp',
+      'Asados': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/asados-viking.webp',
+      'Entradas': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/entradas-viking.webp',
+      'Chuzos Desgranados': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/chuzos-viking.webp',
+      'Especiales': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/especiales-viking.webp',
+      'Adicionales': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/adicionales-viking.webp',
+    };
+    return imageMap[categoryName] || 'https://via.placeholder.com/400x300';
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -126,44 +137,14 @@ export default function Home() {
             <div className="h-1 w-24 bg-accent mx-auto" />
           </div>
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap gap-3 justify-center mb-12">
-            <button
-              onClick={() => setSelectedCategory(null)}
-              className={`px-6 py-2 rounded-full font-bold transition-all ${
-                selectedCategory === null
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-white border-2 border-accent text-primary hover:bg-accent/10'
-              }`}
-            >
-              Todos
-            </button>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-6 py-2 rounded-full font-bold transition-all ${
-                  selectedCategory === cat
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-white border-2 border-accent text-primary hover:bg-accent/10'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
-          {/* Menu Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {displayedItems.map((item: any) => (
-              <MenuCard
-                key={item.nombre}
-                id={item.nombre.toLowerCase().replace(/\s+/g, '-')}
-                nombre={item.nombre}
-                descripcion={item.descripcion}
-                precio={item.precio}
-                categoria={selectedCategory || 'Menu'}
-                imagen={getDishImage(item.nombre)}
+          {/* Category Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {Object.entries(menuData).map(([categoryName, platos]) => (
+              <CategoryCard
+                key={categoryName}
+                nombre={categoryName}
+                imagen={getCategoryImage(categoryName)}
+                platos={platos}
               />
             ))}
           </div>

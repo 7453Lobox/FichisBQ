@@ -61,15 +61,12 @@ export default function MenuCard({
         </div>
 
         {/* Description */}
-        <p className="text-xs md:text-sm text-foreground/80 mb-4 line-clamp-2">
+        <p className="text-xs md:text-sm text-foreground/80 mb-4">
           {descripcion}
         </p>
 
-        {/* Category badge and add button */}
-        <div className="flex items-center justify-between">
-          <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
-            {categoria}
-          </span>
+        {/* Add button */}
+        <div className="flex justify-end">
           <button
             onClick={handleAddToCart}
             className="bg-primary text-primary-foreground hover:bg-primary/90 p-2 rounded transition-colors"
