@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import MenuCard from './MenuCard';
 import { ChevronDown } from 'lucide-react';
+import { getDishImage } from '@/lib/dishImages';
 
 interface Plato {
   nombre: string;
@@ -32,8 +33,13 @@ export default function CategoryCard({ nombre, imagen, platos }: CategoryCardPro
           />
         </div>
         <div className="p-4 text-center">
-          <h3 className="font-bold text-lg text-primary mb-2">{nombre}</h3>
-          <span className="text-primary font-semibold text-sm">Menú</span>
+          <h3 className="font-black text-3xl text-black mb-3">{nombre}</h3>
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 rounded font-semibold transition-colors"
+          >
+            Menú
+          </button>
         </div>
       </div>
 
@@ -48,6 +54,7 @@ export default function CategoryCard({ nombre, imagen, platos }: CategoryCardPro
               descripcion={plato.descripcion || ''}
               precio={plato.precio}
               categoria={nombre}
+              imagen={getDishImage(plato.nombre)}
             />
           ))}
         </div>
