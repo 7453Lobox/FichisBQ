@@ -104,7 +104,7 @@ export default function Home() {
               Bienvenido al Salón de Banquetes
             </h2>
             <p className="text-base md:text-2xl mb-8 text-white/90">
-              Donde los guerreros se reúnen para disfrutar de la mejor comida BBQ
+              Donde los guerreros se reúnen para disfrutar<br className="hidden md:block" /> de la mejor comida BBQ
             </p>
             <a
               href="#menu"
@@ -120,8 +120,8 @@ export default function Home() {
       <section id="menu" className="py-16 md:py-24 bg-background">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="viking-title text-4xl md:text-5xl text-primary mb-4">
-              Nuestro Menú Épico
+            <h2 className="viking-title text-4xl md:text-5xl text-primary mb-4 font-black dark:bg-white/80 dark:text-primary dark:px-4 dark:py-2 dark:rounded-lg dark:inline-block">
+              Nuestro<br />Menú Épico
             </h2>
             <div className="h-1 w-24 bg-accent mx-auto" />
           </div>
@@ -174,7 +174,7 @@ export default function Home() {
       <section id="galeria" className="py-16 md:py-24 bg-white">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="viking-title text-4xl md:text-5xl text-primary mb-4">
+            <h2 className="viking-title text-4xl md:text-5xl text-primary mb-4 font-black">
               Galería en Vivo
             </h2>
             <div className="h-1 w-24 bg-accent mx-auto" />
@@ -208,7 +208,7 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="viking-title text-4xl md:text-5xl text-primary mb-6">
+              <h2 className="viking-title text-4xl md:text-5xl text-primary mb-6 font-black">
                 Calidad Premium
               </h2>
               <p className="text-lg text-foreground mb-4">
@@ -247,7 +247,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="viking-title text-4xl md:text-5xl mb-4">
+            <h2 className="viking-title text-4xl md:text-5xl mb-4 font-black">
               Por Qué Elegir Fichi's
             </h2>
             <div className="h-1 w-24 bg-accent mx-auto" />
@@ -281,11 +281,11 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container text-center">
-          <h2 className="viking-title text-4xl md:text-5xl text-primary mb-6">
+          <h2 className="viking-title text-4xl md:text-5xl text-primary mb-6 font-black dark:bg-white/80 dark:text-primary dark:px-4 dark:py-2 dark:rounded-lg dark:inline-block">
             Listo para la Conquista
           </h2>
-          <p className="text-xl text-foreground mb-8 max-w-2xl mx-auto">
-            Explora nuestro menú épico, agrega tus platos favoritos y envía tu pedido directamente por WhatsApp. Que comience el festín!
+          <p className="text-xl text-foreground mb-8 max-w-2xl mx-auto dark:bg-white/80 dark:text-primary dark:px-4 dark:py-2 dark:rounded-lg dark:inline-block">
+            Explora nuestro menú épico, agrega tus platos favoritos y envía tu pedido directamente<br className="hidden md:block" /> por WhatsApp. Que comience el festín!
           </p>
           <a
             href="#menu"
@@ -299,7 +299,7 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contacto" className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container text-center">
-          <h2 className="viking-title text-4xl md:text-5xl mb-12 text-black dark:text-white">Contactanos</h2>
+          <h2 className="viking-title text-4xl md:text-5xl mb-12 text-black dark:text-primary dark:bg-white/80 dark:px-4 dark:py-2 dark:rounded-lg dark:inline-block font-black">Contactanos</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <a href="https://www.google.com/maps/place/fichi's/@10.9703195,-74.7917297,3a,75y,344.22h,91.64t/data=!3m7!1e1!3m5!1subFgpyHJFcpBJNwTl4F01g!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-1.644396754728291%26panoid%3DubFgpyHJFcpBJNwTl4F01g%26yaw%3D344.21720122086276!7i16384!8i8192!4m16!1m9!3m8!1s0x8ef42d5b31357cbb:0x91c6751df5cc8232!2sfichi's!8m2!3d10.9703807!4d-74.791762!9m1!1b1!16s%2Fg%2F11v62whjb6!3m5!1s0x8ef42d5b31357cbb:0x91c6751df5cc8232!8m2!3d10.9703807!4d-74.791762!16s%2Fg%2F11v62whjb6?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="viking-shield p-8 hover:shadow-xl transition-all duration-300 cursor-pointer">

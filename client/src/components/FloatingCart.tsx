@@ -93,10 +93,10 @@ export default function FloatingCart() {
       {/* Floating Cart Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-40 viking-button shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-2"
+        className="fixed bottom-6 right-6 z-40 w-16 h-16 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center border-4 border-white hover:scale-110"
         aria-label="Abrir carrito"
       >
-        <ShoppingCart size={24} />
+        <ShoppingCart size={28} />
         {items.length > 0 && (
           <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">
             {items.length}
