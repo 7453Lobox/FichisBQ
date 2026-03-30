@@ -285,7 +285,9 @@ export default function Home() {
             Listo para la Conquista
           </h2>
           <p className="text-xl text-foreground mb-8 max-w-2xl mx-auto">
-            Explora nuestro menú épico, agrega tus platos favoritos y envía tu pedido directamente<br className="hidden md:block" /> por WhatsApp. Que comience el festín!
+            Explora nuestro menú épico, agrega tus platos favoritos<br />
+            y envía tu pedido directamente por WhatsApp.<br />
+            Que comience el festín!
           </p>
           <div className="flex justify-center">
             <a
