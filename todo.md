@@ -95,3 +95,13 @@
 - [x] Actualizar página Home con nueva lógica de menú
 - [x] Eliminar botón "Todos"
 - [x] Probar responsividad y guardar checkpoint
+
+
+## Modal de Categorías (Sesión 7)
+
+- [x] Crear componente Modal para mostrar platos de categoría
+- [x] Actualizar CategoryCard para abrir modal en lugar de expandirse
+- [x] Actualizar Home.tsx con lógica de modal
+- [x] Platos distribuidos centrados dentro del modal
+- [x] Categorías esperan en fondo mientras usuario elige
+- [x] Probar y guardar checkpoint

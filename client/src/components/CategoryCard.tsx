@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import MenuCard from './MenuCard';
-import { ChevronDown } from 'lucide-react';
+import CategoryModal from './CategoryModal';
 import { getDishImage } from '@/lib/dishImages';
 
 interface Plato {
@@ -16,13 +15,13 @@ interface CategoryCardProps {
 }
 
 export default function CategoryCard({ nombre, imagen, platos }: CategoryCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="w-full">
+    <>
       {/* Category Card */}
       <div
-        onClick={() => setIsExpanded(!isExpanded)}
+        onClick={() => setIsModalOpen(true)}
         className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer border-2 border-accent"
       >
         <div className="relative aspect-square overflow-hidden">
@@ -35,7 +34,10 @@ export default function CategoryCard({ nombre, imagen, platos }: CategoryCardPro
         <div className="p-4 text-center">
           <h3 className="font-black text-3xl text-black mb-3">{nombre}</h3>
           <button
-            onClick={() => setIsExpanded(!isExpanded)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsModalOpen(true);
+            }}
             className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 rounded font-semibold transition-colors"
           >
             Menú
@@ -43,22 +45,14 @@ export default function CategoryCard({ nombre, imagen, platos }: CategoryCardPro
         </div>
       </div>
 
-      {/* Expanded Platos Grid */}
-      {isExpanded && (
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {platos.map((plato) => (
-            <MenuCard
-              key={plato.nombre}
-              id={plato.nombre.toLowerCase().replace(/\s+/g, '-')}
-              nombre={plato.nombre}
-              descripcion={plato.descripcion || ''}
-              precio={plato.precio}
-              categoria={nombre}
-              imagen={getDishImage(plato.nombre)}
-            />
-          ))}
-        </div>
+      {/* Modal */}
+      {isModalOpen && (
+        <CategoryModal
+          nombre={nombre}
+          platos={platos}
+          onClose={() => setIsModalOpen(false)}
+        />
       )}
-    </div>
+    </>
   );
 }
