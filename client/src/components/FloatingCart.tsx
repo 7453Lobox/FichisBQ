@@ -93,7 +93,7 @@ export default function FloatingCart() {
       {/* Floating Cart Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-40 w-16 h-16 rounded-full bg-primary text-primary-foreground shadow-2xl hover:shadow-[0_10px_30px_rgba(0,0,0,0.8)] transition-all duration-300 flex items-center justify-center border-4 border-white hover:scale-110"
+        className="fixed bottom-6 right-6 z-40 w-16 h-16 rounded-full bg-primary text-primary-foreground shadow-[0_8px_25px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.9)] transition-all duration-300 flex items-center justify-center border-4 border-white hover:scale-110"
         aria-label="Abrir carrito"
       >
         <ShoppingCart size={28} />
