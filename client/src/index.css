@@ -6,6 +6,21 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/MejoradaChatGPT_21319aab.png');
+  background-attachment: fixed;
+  background-size: auto;
+}
+
+html.light {
+  background-image: none;
+  background-color: white;
+}
+
+html body {
+  background-color: transparent;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -126,12 +141,6 @@
   --sidebar-accent-foreground: #2A2A2A;
   --sidebar-border: #D4AF37;
   --sidebar-ring: #D4AF37;
-}
-
-.dark body {
-  background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/MejoradaChatGPT_21319aab.png');
-  background-attachment: fixed;
-  background-size: auto;
 }
 
 @layer base {

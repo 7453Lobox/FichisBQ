@@ -8,6 +8,11 @@ import App from "./App";
 import { getLoginUrl } from "./const";
 import "./index.css";
 
+// Apply dark theme immediately to prevent flash
+if (typeof window !== 'undefined') {
+  document.documentElement.classList.add('dark');
+}
+
 const queryClient = new QueryClient();
 
 const redirectToLoginIfUnauthorized = (error: unknown) => {
