@@ -40,16 +40,16 @@ export default function Home() {
 
   const getCategoryImage = (categoryName: string): string => {
     const imageMap: { [key: string]: string } = {
-      'Hamburguesas': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/hamburguesa-gourmet-viking.webp',
-      'Perros Calientes': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/perro-caliente-viking.webp',
-      'Sandwich Panini': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/sandwich-panini-viking.webp',
-      'Salchipapas y Patatas': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/salchipapas-viking.webp',
-      'Patatas Mini': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/patatas-mini-viking.webp',
-      'Asados': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/asados-viking.webp',
-      'Entradas': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/entradas-viking.webp',
-      'Chuzos Desgranados': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/chuzos-viking.webp',
-      'Especiales': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/especiales-viking.webp',
-      'Adicionales': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/adicionales-viking.webp',
+      'Hamburguesas': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/dublin-hamburguesa-nCWdTTqQypcmyQv3mN7wqY.webp',
+      'Perros Calientes': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/perro-hawaiano-dZqCQpavCNWwakR5mvmamx.webp',
+      'Sandwich Panini': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/sandwich-gratinado-fbUfKHgGYSgaGsoCk2GKPV.webp',
+      'Salchipapas y Patatas': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/salchipapas-gratinada-AVHv5n4M4Thbxbj2EogMci.webp',
+      'Patatas Mini': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/salchipapas-gratinada-AVHv5n4M4Thbxbj2EogMci.webp',
+      'Asados': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/pechuga-plancha-8D2eX7LMJ4YtD4L3LmebTc.webp',
+      'Entradas': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/chorizo-ternera-bollo-MUzLRbGAnPCDTwwQ9Hn4yA.webp',
+      'Chuzos Desgranados': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/salchipapas-gratinada-AVHv5n4M4Thbxbj2EogMci.webp',
+      'Especiales': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/fichis-suprema-BQTDs3jRPXsojZfyrxvcA4.webp',
+      'Adicionales': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/patacon-x5-oXJGdWift7tfeKEw5JbkUR.webp',
     };
     return imageMap[categoryName] || 'https://via.placeholder.com/400x300';
   };
