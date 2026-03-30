@@ -135,9 +135,6 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Lato', sans-serif;
-    background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/viking-texture-bg-WdAJSy2SygnQL7U5kYbPhL.webp');
-    background-attachment: fixed;
-    background-size: auto;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
