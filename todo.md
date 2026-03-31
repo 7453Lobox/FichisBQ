@@ -115,5 +115,12 @@
 - [x] Actualizar lógica de carrito para guardar modificaciones
 - [x] Filtrar ingredientes según tipo de plato
 - [x] Actualizar precio con adicionales
-- [ ] Permitir modificar desde el carrito
-- [ ] Probar flujo completo y guardar checkpoint
+- [x] Permitir modificar desde el carrito
+- [x] Probar flujo completo y guardar checkpoint
+
+## Bugs a Arreglar - Sistema de Modificaciones (Sesión 9)
+
+- [x] Bug 1: Botones "Añadir al Carrito" y "Cancelar" no se ven al seleccionar adicionales
+- [x] Bug 2: Parpadeo en bucle al mover mouse (problema de responsive en modal)
+- [x] Bug 3: No se puede modificar productos ya en el carrito (falta re-abrir modal)
+- [x] Bug 4: Diseño visual de adicionales no coincide con referencia (falta imagen + nombre + precio + botón)

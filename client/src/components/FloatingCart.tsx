@@ -1,20 +1,38 @@
 import { useCart } from '@/contexts/CartContext';
-import { ShoppingCart, X, Trash2 } from 'lucide-react';
+import type { CartItem } from '@/contexts/CartContext';
+import { ShoppingCart, X, Trash2, Edit2 } from 'lucide-react';
 import { useState } from 'react';
 import { trpc } from '@/lib/trpc';
 import { toast } from 'sonner';
+import ModificationsModal from './ModificationsModal';
+import { extractIngredientsFromDescription } from '@/lib/ingredientsPrices';
+import menuData from '@/lib/menuData.json';
 
 /**
  * Floating Cart Component
  * Design: Viking Banquet Hall - Sidebar cart with Nordic aesthetics
- * Features: Add/remove items, quantity control, WhatsApp integration
+ * Features: Add/remove items, quantity control, WhatsApp integration, edit modifications
  */
 export default function FloatingCart() {
-  const { items, removeItem, updateQuantity, total, clearCart } = useCart();
+  const { items, removeItem, updateQuantity, updateItem, total, clearCart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
+  const [editingItemId, setEditingItemId] = useState<string | null>(null);
+  const [editingItemIndex, setEditingItemIndex] = useState<number | null>(null);
 
   const WHATSAPP_NUMBER = '573022525442';
   const RESTAURANT_NAME = "Fichi's BBQ";
+
+  // Find the dish being edited
+  const editingItem = editingItemIndex !== null ? items[editingItemIndex] : null;
+  const editingDish = editingItem ? findDishByName(editingItem.nombre) : null;
+
+  function findDishByName(nombre: string) {
+    for (const category of Object.values(menuData)) {
+      const dish = (category as any[]).find(d => d.nombre === nombre);
+      if (dish) return dish;
+    }
+    return null;
+  }
 
   const generateWhatsAppMessage = () => {
     if (items.length === 0) return '';
@@ -27,6 +45,19 @@ export default function FloatingCart() {
       message += `${index + 1}. ${item.nombre.toUpperCase()}\n`;
       message += `   Cantidad: ${item.cantidad}\n`;
       message += `   Precio unitario: $${item.precio.toLocaleString()}\n`;
+      
+      // Include modifications if present
+      if (item.modifications && item.modifications.length > 0) {
+        message += `   Modificaciones:\n`;
+        item.modifications.forEach(mod => {
+          if (mod.type === 'added') {
+            message += `     + ${mod.ingredient} (+$${mod.price.toLocaleString()})\n`;
+          } else {
+            message += `     - ${mod.ingredient}\n`;
+          }
+        });
+      }
+      
       message += `   Subtotal: $${(item.precio * item.cantidad).toLocaleString()}\n\n`;
     });
 
@@ -65,6 +96,7 @@ export default function FloatingCart() {
           cantidad: item.cantidad,
           precio: item.precio,
           categoria: item.categoria,
+          modifications: item.modifications,
         }))),
         totalPrice: Math.round(total * 100), // Convert to cents
         paymentMethod: 'whatsapp',
@@ -85,6 +117,24 @@ export default function FloatingCart() {
     } catch (error) {
       console.error('Error creating order:', error);
       toast.error('Error al guardar el pedido');
+    }
+  };
+
+  const handleEditItem = (index: number) => {
+    setEditingItemIndex(index);
+    setEditingItemId(items[index].id);
+  };
+
+  const handleSaveModifications = (modifications: any[], totalPrice: number) => {
+    if (editingItemIndex !== null && editingItemId !== null) {
+      // Update the item with new modifications and price
+      updateItem(editingItemId, {
+        precio: totalPrice,
+        modifications,
+      });
+      
+      setEditingItemId(null);
+      setEditingItemIndex(null);
     }
   };
 
@@ -136,23 +186,44 @@ export default function FloatingCart() {
                   <p className="text-sm text-muted-foreground mt-2">Comienza tu aventura gastronomica!</p>
                 </div>
               ) : (
-                items.map((item) => (
+                items.map((item, index) => (
                   <div
-                    key={item.id}
+                    key={`${item.id}-${index}`}
                     className="border-b border-border pb-4 last:border-b-0"
                   >
                     <div className="flex justify-between items-start mb-2">
                       <div className="flex-1">
                         <h3 className="font-bold text-foreground">{item.nombre}</h3>
                         <p className="text-sm text-muted-foreground">${item.precio.toLocaleString()}</p>
+                        
+                        {/* Show modifications if present */}
+                        {item.modifications && item.modifications.length > 0 && (
+                          <div className="text-xs text-primary mt-1">
+                            {item.modifications.map((mod, i) => (
+                              <div key={i}>
+                                {mod.type === 'added' ? '+' : '-'} {mod.ingredient}
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
-                      <button
-                        onClick={() => removeItem(item.id)}
-                        className="text-destructive hover:bg-destructive/10 p-1 rounded transition-colors"
-                        aria-label="Eliminar del carrito"
-                      >
-                        <Trash2 size={18} />
-                      </button>
+                      <div className="flex gap-1">
+                        <button
+                          onClick={() => handleEditItem(index)}
+                          className="text-primary hover:bg-primary/10 p-1 rounded transition-colors"
+                          aria-label="Editar modificaciones"
+                          title="Editar modificaciones"
+                        >
+                          <Edit2 size={18} />
+                        </button>
+                        <button
+                          onClick={() => removeItem(item.id)}
+                          className="text-destructive hover:bg-destructive/10 p-1 rounded transition-colors"
+                          aria-label="Eliminar del carrito"
+                        >
+                          <Trash2 size={18} />
+                        </button>
+                      </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <button
@@ -203,6 +274,23 @@ export default function FloatingCart() {
             )}
           </div>
         </div>
+      )}
+
+      {/* Modifications Modal for editing */}
+      {editingItem && editingDish && (
+        <ModificationsModal
+          isOpen={editingItemId !== null}
+          onClose={() => {
+            setEditingItemId(null);
+            setEditingItemIndex(null);
+          }}
+          onSave={handleSaveModifications}
+          dishName={editingItem.nombre}
+          category={editingItem.categoria}
+          basePrice={editingItem.basePrice || editingItem.precio}
+          baseIngredients={extractIngredientsFromDescription(editingDish.descripcion)}
+          existingModifications={editingItem.modifications || []}
+        />
       )}
     </>
   );
