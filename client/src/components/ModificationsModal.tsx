@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { X, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { getAllowedIngredients, getIngredientPrice } from '@/lib/ingredientsPrices';
+import { getAllowedIngredients, getIngredientPrice, getIngredientImage } from '@/lib/ingredientsPrices';
 
 interface Modification {
   ingredient: string;
@@ -77,7 +77,7 @@ export default function ModificationsModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" style={{ scrollbarGutter: 'stable' }}>
       <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden">
         {/* Header - Fixed */}
         <div className="bg-white border-b p-4 md:p-6 flex justify-between items-start flex-shrink-0">
@@ -94,7 +94,7 @@ export default function ModificationsModal({
         </div>
 
         {/* Content - Scrolleable */}
-        <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
+        <div className="flex-1 overflow-y-auto px-4 md:px-6 py-4 md:py-6 space-y-6" style={{ scrollbarGutter: 'stable' }}>
           {/* Mode Selection */}
           <div className="flex gap-3">
             <Button
@@ -128,7 +128,7 @@ export default function ModificationsModal({
 
           {/* Ingredients Grid */}
           {mode && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-3">
               {availableIngredients.map((ingredient) => {
                 const price = getIngredientPrice(ingredient);
                 const modType = mode === 'add' ? 'added' : 'removed';
@@ -144,18 +144,26 @@ export default function ModificationsModal({
                         : 'border-border hover:border-primary/50 hover:bg-muted'
                     }`}
                   >
-                    {/* Image */}
-                    <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 bg-muted flex items-center justify-center text-2xl">
-                      🍖
-                    </div>
-
-                    {/* Info */}
+                    {/* Info - Left Side */}
                     <div className="flex-1 min-w-0">
                       <div className="font-medium text-sm text-foreground truncate">{ingredient}</div>
                       {mode === 'add' && (
                         <div className="text-xs text-primary font-semibold">
                           +${price.toLocaleString()}
                         </div>
+                      )}
+                    </div>
+
+                    {/* Image - Right Side */}
+                    <div className="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 bg-muted flex items-center justify-center">
+                      {getIngredientImage(ingredient) ? (
+                        <img
+                          src={getIngredientImage(ingredient) || ''}
+                          alt={ingredient}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <span className="text-xl">🍖</span>
                       )}
                     </div>
 
@@ -226,17 +234,17 @@ export default function ModificationsModal({
         </div>
 
         {/* Footer - Fixed */}
-        <div className="bg-white border-t p-4 md:p-6 flex gap-3 flex-shrink-0">
-          <Button 
+        <div className="bg-white border-t px-4 md:px-6 py-4 md:py-6 flex gap-3 flex-shrink-0">
+            <Button 
             onClick={onClose} 
             variant="outline" 
-            className="flex-1 text-sm md:text-base"
+            className="flex-1 text-xs sm:text-sm md:text-base"
           >
             Cancelar
           </Button>
           <Button 
             onClick={handleSave} 
-            className="flex-1 bg-primary text-primary-foreground text-sm md:text-base"
+            className="flex-1 bg-primary text-primary-foreground text-xs sm:text-sm md:text-base"
           >
             Adicionar al Carrito
           </Button>

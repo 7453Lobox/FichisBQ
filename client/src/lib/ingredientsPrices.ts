@@ -178,3 +178,18 @@ export function getAllowedIngredients(category: string): string[] {
 export function getIngredientPrice(ingredient: string): number {
   return ingredientsPrices[ingredient] || 5000;
 }
+
+// Mapeo de ingredientes a imágenes
+const ingredientImages: Record<string, string> = {
+  "Carne de Hamburguesa": "https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/ingredient-carne-hamburguesa-gkkbZJebCj8ECuaqfPkXEV.webp",
+  "Piña caramelizada": "https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/ingredient-pina-caramelizada-DGEhQVq2YwdnwdPpZFGxLq.webp",
+  "Cebolla caramelizada": "https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/ingredient-cebolla-caramelizada-o28G5VyNtydmLX5NaMz2AF.webp",
+  "Queso Costeño": "https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/ingredient-queso-costeno-WS9Uz9LzgPoJVvt289jN2z.webp",
+  "Butifarra Premium": "https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/ingredient-butifarra-premium-3D4SJW9k59w2EUZf9PjJDN.webp",
+  "Chorizo de ternera": "https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/ingredient-chorizo-ternera-dSLZnxgBA3rkVxcDzvcBDK.webp",
+};
+
+// Función para obtener imagen de ingrediente
+export function getIngredientImage(ingredient: string): string | null {
+  return ingredientImages[ingredient] || null;
+}
