@@ -77,8 +77,8 @@ export default function ModificationsModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" style={{ scrollbarGutter: 'stable' }}>
-      <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" style={{ scrollbarGutter: 'stable', overflow: 'hidden' }}>
+      <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full h-[90vh] flex flex-col overflow-hidden">
         {/* Header - Fixed */}
         <div className="bg-white border-b p-4 md:p-6 flex justify-between items-start flex-shrink-0">
           <div>
@@ -94,35 +94,35 @@ export default function ModificationsModal({
         </div>
 
         {/* Content - Scrolleable */}
-        <div className="flex-1 overflow-y-auto px-4 md:px-6 py-4 md:py-6 space-y-6" style={{ scrollbarGutter: 'stable' }}>
+        <div className="flex-1 overflow-y-auto px-4 md:px-6 py-4 md:py-6 space-y-6" style={{ scrollbarGutter: 'stable', WebkitOverflowScrolling: 'touch' }}>
           {/* Mode Selection */}
-          <div className="flex gap-3">
+          <div className="flex gap-3 sticky top-0 bg-white pt-2 pb-4 z-10">
             <Button
               onClick={() => {
                 setMode('add');
               }}
               variant={mode === 'add' ? 'default' : 'outline'}
-              className="flex-1 text-sm md:text-base"
+              className="flex-1 text-sm md:text-base font-semibold py-2 md:py-3 h-auto"
             >
-              Adicionar
+              + Adicionar
             </Button>
             <Button
               onClick={() => {
                 setMode('remove');
               }}
               variant={mode === 'remove' ? 'default' : 'outline'}
-              className="flex-1 text-sm md:text-base"
+              className="flex-1 text-sm md:text-base font-semibold py-2 md:py-3 h-auto"
             >
-              Quitar
+              - Quitar
             </Button>
           </div>
 
           {/* Question */}
           {mode && (
-            <p className="text-sm md:text-base font-medium text-foreground text-center">
+            <p className="text-xs md:text-sm font-medium text-muted-foreground text-center -mt-2">
               {mode === 'add' 
-                ? '¿Desea adicionar algún ingrediente?' 
-                : '¿Desea quitar algún ingrediente?'}
+                ? 'Selecciona ingredientes para agregar' 
+                : 'Selecciona ingredientes para quitar'}
             </p>
           )}
 
@@ -138,9 +138,9 @@ export default function ModificationsModal({
                   <button
                     key={ingredient}
                     onClick={() => handleSelectIngredient(ingredient)}
-                    className={`p-3 rounded-lg border-2 transition-all text-left flex items-center gap-3 ${
+                    className={`p-3 rounded-lg border-2 transition-all text-left flex items-center gap-3 active:scale-95 ${
                       isSelected
-                        ? 'border-primary bg-primary/10'
+                        ? 'border-primary bg-primary/10 shadow-md'
                         : 'border-border hover:border-primary/50 hover:bg-muted'
                     }`}
                   >
@@ -234,19 +234,19 @@ export default function ModificationsModal({
         </div>
 
         {/* Footer - Fixed */}
-        <div className="bg-white border-t px-4 md:px-6 py-4 md:py-6 flex gap-3 flex-shrink-0">
-            <Button 
+        <div className="bg-white border-t px-4 md:px-6 py-3 md:py-4 flex gap-3 flex-shrink-0 bg-gradient-to-r from-primary/5 to-accent/5">
+          <Button 
             onClick={onClose} 
             variant="outline" 
-            className="flex-1 text-xs sm:text-sm md:text-base"
+            className="flex-1 text-xs sm:text-sm md:text-base font-semibold py-2 md:py-3 h-auto"
           >
             Cancelar
           </Button>
           <Button 
             onClick={handleSave} 
-            className="flex-1 bg-primary text-primary-foreground text-xs sm:text-sm md:text-base"
+            className="flex-1 bg-primary text-primary-foreground text-xs sm:text-sm md:text-base font-semibold py-2 md:py-3 h-auto hover:bg-primary/90 transition-colors"
           >
-            Adicionar al Carrito
+            ✓ Adicionar al Carrito
           </Button>
         </div>
       </div>
