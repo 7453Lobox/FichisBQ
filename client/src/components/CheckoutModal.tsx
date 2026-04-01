@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -27,6 +27,20 @@ export default function CheckoutModal({ isOpen, onClose, onSubmit, totalPrice }:
   });
 
   const [errors, setErrors] = useState<Partial<CheckoutData>>({});
+
+  // Cerrar con Escape
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+      return () => document.removeEventListener('keydown', handleEscape);
+    }
+  }, [isOpen, onClose]);
 
   const validateForm = () => {
     const newErrors: Partial<CheckoutData> = {};
@@ -65,14 +79,17 @@ export default function CheckoutModal({ isOpen, onClose, onSubmit, totalPrice }:
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[9997] p-4">
-      <div className="bg-primary dark:bg-primary rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] p-4" onClick={onClose}>
+      <div 
+        className="bg-white rounded-2xl shadow-2xl max-w-sm w-full overflow-hidden border-4 border-primary"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
-        <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground p-6 flex justify-between items-center">
-          <h2 className="text-2xl font-bold">Por favor indique lo siguiente:</h2>
+        <div className="bg-white border-b-4 border-primary px-6 py-4 flex justify-between items-center">
+          <h2 className="text-xl font-bold text-primary">Por favor indique lo siguiente:</h2>
           <button
             onClick={onClose}
-            className="hover:bg-white/20 p-2 rounded-lg transition-colors"
+            className="hover:bg-primary/10 p-2 rounded-lg transition-colors text-primary"
             title="Cerrar"
           >
             <X size={24} />
@@ -80,31 +97,31 @@ export default function CheckoutModal({ isOpen, onClose, onSubmit, totalPrice }:
         </div>
 
         {/* Form Content */}
-        <div className="p-6 space-y-4">
+        <div className="p-6 space-y-3">
           {/* Name and Hour Row */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm font-bold text-primary-foreground mb-2">
+              <label className="block text-xs font-bold text-primary mb-1">
                 * Nombre:
               </label>
               <input
                 type="text"
                 value={formData.nombre}
                 onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border-2 border-accent/30 focus:border-accent focus:outline-none text-foreground"
+                className="w-full px-2 py-2 rounded-lg border-2 border-primary/30 focus:border-primary focus:outline-none text-foreground text-sm"
                 placeholder="Tu nombre"
               />
               {errors.nombre && <p className="text-red-500 text-xs mt-1">{errors.nombre}</p>}
             </div>
             <div>
-              <label className="block text-sm font-bold text-primary-foreground mb-2">
+              <label className="block text-xs font-bold text-primary mb-1">
                 * Hora:
               </label>
               <input
                 type="time"
                 value={formData.hora}
                 onChange={(e) => setFormData({ ...formData, hora: e.target.value })}
-                className="w-full px-3 py-2 rounded-lg border-2 border-accent/30 focus:border-accent focus:outline-none text-foreground"
+                className="w-full px-2 py-2 rounded-lg border-2 border-primary/30 focus:border-primary focus:outline-none text-foreground text-sm"
               />
               {errors.hora && <p className="text-red-500 text-xs mt-1">{errors.hora}</p>}
             </div>
@@ -112,14 +129,14 @@ export default function CheckoutModal({ isOpen, onClose, onSubmit, totalPrice }:
 
           {/* Phone */}
           <div>
-            <label className="block text-sm font-bold text-primary-foreground mb-2">
+            <label className="block text-xs font-bold text-primary mb-1">
               * Teléfono:
             </label>
             <input
               type="tel"
               value={formData.telefono}
               onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
-              className="w-full px-3 py-2 rounded-lg border-2 border-accent/30 focus:border-accent focus:outline-none text-foreground"
+              className="w-full px-2 py-2 rounded-lg border-2 border-primary/30 focus:border-primary focus:outline-none text-foreground text-sm"
               placeholder="573001234567"
             />
             {errors.telefono && <p className="text-red-500 text-xs mt-1">{errors.telefono}</p>}
@@ -127,14 +144,14 @@ export default function CheckoutModal({ isOpen, onClose, onSubmit, totalPrice }:
 
           {/* Address */}
           <div>
-            <label className="block text-sm font-bold text-primary-foreground mb-2">
+            <label className="block text-xs font-bold text-primary mb-1">
               * Dirección:
             </label>
             <input
               type="text"
               value={formData.direccion}
               onChange={(e) => setFormData({ ...formData, direccion: e.target.value })}
-              className="w-full px-3 py-2 rounded-lg border-2 border-accent/30 focus:border-accent focus:outline-none text-foreground"
+              className="w-full px-2 py-2 rounded-lg border-2 border-primary/30 focus:border-primary focus:outline-none text-foreground text-sm"
               placeholder="Calle 47B # 27 - 06"
             />
             {errors.direccion && <p className="text-red-500 text-xs mt-1">{errors.direccion}</p>}
@@ -142,10 +159,10 @@ export default function CheckoutModal({ isOpen, onClose, onSubmit, totalPrice }:
 
           {/* Payment Methods Grid */}
           <div>
-            <label className="block text-sm font-bold text-primary-foreground mb-3">
+            <label className="block text-xs font-bold text-primary mb-2">
               * Forma de pago:
             </label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2">
               {[
                 { id: 'efectivo', label: 'Efectivo', icon: '💵' },
                 { id: 'tarjeta', label: 'Tarjeta', icon: '💳' },
@@ -155,10 +172,10 @@ export default function CheckoutModal({ isOpen, onClose, onSubmit, totalPrice }:
                 <button
                   key={method.id}
                   onClick={() => setFormData({ ...formData, formaPago: method.id as any })}
-                  className={`p-3 rounded-lg border-2 transition-all font-semibold text-sm flex items-center justify-center gap-2 ${
+                  className={`p-2 rounded-lg border-2 transition-all font-semibold text-xs flex items-center justify-center gap-1 ${
                     formData.formaPago === method.id
-                      ? 'border-accent bg-accent/20 text-primary-foreground'
-                      : 'border-accent/30 bg-white/10 text-primary-foreground hover:border-accent/50'
+                      ? 'border-primary bg-primary/10 text-primary'
+                      : 'border-primary/30 bg-white text-primary hover:border-primary/50'
                   }`}
                 >
                   <span>{method.icon}</span>
@@ -167,26 +184,19 @@ export default function CheckoutModal({ isOpen, onClose, onSubmit, totalPrice }:
               ))}
             </div>
           </div>
-
-          {/* Total Price */}
-          <div className="bg-white/10 rounded-lg p-4 text-center">
-            <p className="text-primary-foreground/80 text-sm mb-1">Total a pagar:</p>
-            <p className="text-3xl font-bold text-accent">${totalPrice.toLocaleString()}</p>
-          </div>
         </div>
 
         {/* Footer Buttons */}
-        <div className="bg-primary/80 p-6 flex gap-3">
+        <div className="bg-white border-t-4 border-primary px-6 py-4 flex gap-3">
           <Button
             onClick={onClose}
-            variant="outline"
-            className="flex-1 bg-red-600 text-white hover:bg-red-700 border-0 font-bold"
+            className="flex-1 bg-red-600 text-white hover:bg-red-700 border-0 font-bold text-sm rounded-lg"
           >
             ✕ Cancelar
           </Button>
           <Button
             onClick={handleSubmit}
-            className="flex-1 bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-lg"
+            className="flex-1 bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-sm rounded-lg"
           >
             Listo
           </Button>
