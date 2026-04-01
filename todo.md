@@ -124,3 +124,12 @@
 - [x] Bug 2: Parpadeo en bucle al mover mouse (problema de responsive en modal)
 - [x] Bug 3: No se puede modificar productos ya en el carrito (falta re-abrir modal)
 - [x] Bug 4: Diseño visual de adicionales no coincide con referencia (falta imagen + nombre + precio + botón)
+
+## Mejoras de UX - Flujo de Categorías y Pedidos (Sesión 10)
+
+- [ ] Cambiar flujo de categorías a inline (sin modal)
+- [ ] Agregar botón "Atrás" con flecha para volver a categorías
+- [ ] Aumentar z-index del carrito flotante
+- [ ] Crear formulario de pedido con campos: Nombre, Teléfono, Dirección, Forma de pago, Hora
+- [ ] Integrar formulario con WhatsApp
+- [ ] Probar flujo completo
