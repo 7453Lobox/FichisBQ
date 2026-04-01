@@ -145,7 +145,7 @@ export default function Home() {
           {/* Show categories or dishes based on selection */}
           {!selectedCategory ? (
             // Category Cards Grid
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {Object.entries(menuData).map(([categoryName, platos]) => (
                 <div
                   key={categoryName}
@@ -193,7 +193,7 @@ export default function Home() {
               </div>
 
               {/* Dishes Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                 {selectedCategoryPlatos.map((plato: any) => (
                   <MenuCard
                     key={plato.nombre}

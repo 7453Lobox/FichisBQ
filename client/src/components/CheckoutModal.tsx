@@ -17,6 +17,13 @@ export interface CheckoutData {
   hora: string;
 }
 
+const paymentMethods = [
+  { id: 'efectivo', label: 'Efectivo', icon: '💵' },
+  { id: 'tarjeta', label: 'Tarjeta', icon: '💳' },
+  { id: 'transferencia', label: 'Transferencia', icon: '🏦' },
+  { id: 'nequi', label: 'Nequi', icon: '💎' },
+];
+
 export default function CheckoutModal({ isOpen, onClose, onSubmit, totalPrice }: CheckoutModalProps) {
   const [formData, setFormData] = useState<CheckoutData>({
     nombre: '',
@@ -77,6 +84,8 @@ export default function CheckoutModal({ isOpen, onClose, onSubmit, totalPrice }:
   };
 
   if (!isOpen) return null;
+
+  const selectedPaymentLabel = paymentMethods.find(m => m.id === formData.formaPago)?.label || 'Efectivo';
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[9998] p-4" onClick={onClose}>
@@ -159,16 +168,16 @@ export default function CheckoutModal({ isOpen, onClose, onSubmit, totalPrice }:
 
           {/* Payment Methods Grid */}
           <div>
-            <label className="block text-xs font-bold text-primary mb-2">
-              * Forma de pago:
-            </label>
+            <div className="flex items-center justify-between mb-2">
+              <label className="block text-xs font-bold text-primary">
+                * Forma de pago:
+              </label>
+              <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-lg">
+                {selectedPaymentLabel}
+              </span>
+            </div>
             <div className="grid grid-cols-2 gap-2">
-              {[
-                { id: 'efectivo', label: 'Efectivo', icon: '💵' },
-                { id: 'tarjeta', label: 'Tarjeta', icon: '💳' },
-                { id: 'transferencia', label: 'Transferencia', icon: '🏦' },
-                { id: 'nequi', label: 'Nequi', icon: '💎' },
-              ].map((method) => (
+              {paymentMethods.map((method) => (
                 <button
                   key={method.id}
                   onClick={() => setFormData({ ...formData, formaPago: method.id as any })}
@@ -196,7 +205,7 @@ export default function CheckoutModal({ isOpen, onClose, onSubmit, totalPrice }:
           </Button>
           <Button
             onClick={handleSubmit}
-            className="flex-1 bg-accent text-accent-foreground hover:bg-accent/90 font-bold text-sm rounded-lg"
+            className="flex-1 bg-green-600 text-white hover:bg-green-700 font-bold text-sm rounded-lg"
           >
             Listo
           </Button>
