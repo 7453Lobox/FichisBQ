@@ -400,13 +400,16 @@ export default function Home() {
               <div className="text-4xl mb-4">📱</div>
               <h3 className="font-bold text-lg mb-2 text-black">Teléfono</h3>
               <p className="text-black">+57 3022525442</p>
-              <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="text-sm mt-2 text-green-600 hover:text-green-700 font-bold transition-colors inline-block">WhatsApp disponible</a>
+              <p className="text-sm mt-4 text-black font-bold">WhatsApp disponible</p>
+              <a href="https://wa.me/573022525442?text=Hola%20Fichi's%20BQ%2C%20quisiera%20hacer%20un%20rico%20pedido" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 transition-opacity hover:opacity-80" title="WhatsApp">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp-logo_f5daf00e.png" alt="WhatsApp" className="w-8 h-8" />
+              </a>
             </div>
           </div>
 
           <div className="mt-12">
             <a
-              href="https://wa.me/573022525442"
+              href="https://wa.me/573022525442?text=Hola%20Fichi's%20BQ%2C%20quisiera%20hacer%20un%20rico%20pedido"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-green-600 text-white font-bold py-4 px-8 rounded-lg hover:bg-green-700 transition-all duration-300 hover:-translate-y-1"
@@ -458,13 +461,13 @@ export default function Home() {
             Hecho con fuego y pasión por la buena comida
           </p>
           <div className="flex justify-center gap-4 mt-4">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Instagram">
+            <a href="https://instagram.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Instagram">
               <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" className="w-6 h-6" />
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Facebook">
+            <a href="https://facebook.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Facebook">
               <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_icon.png" alt="Facebook" className="w-6 h-6" />
             </a>
-            <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="WhatsApp">
+            <a href="https://wa.me/573022525442?text=Hola%20Fichi's%20BQ%2C%20quisiera%20hacer%20un%20rico%20pedido" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="WhatsApp">
               <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp-logo_f5daf00e.png" alt="WhatsApp" className="w-6 h-6" />
             </a>
           </div>
