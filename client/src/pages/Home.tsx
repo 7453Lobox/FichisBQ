@@ -384,22 +384,22 @@ export default function Home() {
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">📍</div>
               <h3 className="font-bold text-lg mb-2">Ubicación</h3>
-              <p className="text-primary-foreground">Calle 47B # 27 - 06 Local 2</p>
-              <p className="text-primary-foreground">Barranquilla, Colombia</p>
+              <p className="text-black">Calle 47B # 27 - 06 Local 2</p>
+              <p className="text-black">Barranquilla, Colombia</p>
             </div>
 
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">⏰</div>
               <h3 className="font-bold text-lg mb-2">Horario</h3>
-              <p className="text-primary-foreground">Martes a Domingo</p>
-              <p className="text-primary-foreground">4:00 PM - 11:00 PM</p>
+              <p className="text-black">Martes a Domingo</p>
+              <p className="text-black">4:00 PM - 11:00 PM</p>
             </div>
 
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">📱</div>
               <h3 className="font-bold text-lg mb-2">Teléfono</h3>
-              <p className="text-primary-foreground">+57 3022525442</p>
-              <p className="text-sm mt-2 text-primary-foreground">WhatsApp disponible</p>
+              <p className="text-black">+57 3022525442</p>
+              <p className="text-sm mt-2 text-black">WhatsApp disponible</p>
             </div>
           </div>
 
@@ -452,8 +452,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-dark text-white py-8">
         <div className="container text-center">
-          <p className="font-bold mb-2 text-white">Fichi's BBQ - Donde los Guerreros Comen</p>
-          <p className="text-sm text-white">
+          <p className="font-bold mb-2 text-primary">Fichi's BBQ - Donde los Guerreros Comen</p>
+          <p className="text-sm text-gray-400">
             Hecho con fuego y pasión por la buena comida
           </p>
           <div className="flex justify-center gap-4 mt-4">
