@@ -400,9 +400,9 @@ export default function Home() {
               <div className="text-4xl mb-4">📱</div>
               <h3 className="font-bold text-lg mb-2 text-black">Teléfono</h3>
               <p className="text-black">+57 3022525442</p>
-              <p className="text-sm mt-4 text-black font-bold">WhatsApp disponible</p>
-              <a href="https://wa.me/573022525442?text=Hola%20Fichi's%20BQ%2C%20quisiera%20hacer%20un%20rico%20pedido" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 transition-opacity hover:opacity-80" title="WhatsApp">
-                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp-logo_f5daf00e.png" alt="WhatsApp" className="w-8 h-8" />
+              <p className="text-sm mt-2 text-black">WhatsApp disponible</p>
+              <a href="https://wa.me/573022525442?text=Hola%20Fichi's%20BQ%2C%20quisiera%20hacer%20un%20rico%20pedido" target="_blank" rel="noopener noreferrer" className="inline-block mt-2 transition-opacity hover:opacity-80" title="WhatsApp">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp-logo_f5daf00e.png" alt="WhatsApp" className="w-10 h-10" />
               </a>
             </div>
           </div>
