@@ -1,9 +1,0 @@
-{
-  "query": "UPDATE `adminConfig` SET `passwordHash` = '$2b$10$khu1LAbrYuIfdoFfLL3zX.fgFRREf4izZJD/ulKro/WfkLidhzyom' WHERE `id` = 1;",
-  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3L1D1n993EUa7ZT.root --database ZAf6EHxtQifi3Kavc8aaUS --execute UPDATE `adminConfig` SET `passwordHash` = '$2b$10$khu1LAbrYuIfdoFfLL3zX.fgFRREf4izZJD/ulKro/WfkLidhzyom' WHERE `id` = 1;",
-  "rows": [],
-  "messages": [],
-  "stdout": "",
-  "stderr": "",
-  "execution_time_ms": 195
-}

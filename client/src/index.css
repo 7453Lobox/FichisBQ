@@ -6,34 +6,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-html {
-  background-color: white;
-}
-
-html::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/ComoMarcadeAguaGPT_1a1eac01.png');
-  background-attachment: fixed;
-  background-size: auto;
-  opacity: 0.8;
-  pointer-events: none;
-  z-index: -1;
-}
-
-html.light {
-  background-image: none;
-  background-color: white;
-}
-
-html body {
-  background-color: transparent;
-}
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -116,7 +88,7 @@ html body {
 }
 
 .dark {
-  /* Dark mode with pattern background */
+  /* Dark mode not used for this design - keeping light theme */
   --viking-red: #8B2E2E;
   --viking-gold: #D4AF37;
   --viking-dark: #2A2A2A;
@@ -131,7 +103,7 @@ html body {
   --chart-3: #2A2A2A;
   --chart-4: #A0452E;
   --chart-5: #6B1F1F;
-  --background: transparent;
+  --background: #F5F1E8;
   --foreground: #2A2A2A;
   --card: #FFFFFF;
   --card-foreground: #2A2A2A;
@@ -139,8 +111,8 @@ html body {
   --popover-foreground: #2A2A2A;
   --secondary: #D4AF37;
   --secondary-foreground: #2A2A2A;
-  --muted: rgba(232, 228, 220, 0.7);
-  --muted-foreground: #F5F1E8;
+  --muted: #E8E4DC;
+  --muted-foreground: #6B6B6B;
   --accent: #D4AF37;
   --accent-foreground: #2A2A2A;
   --destructive: #8B2E2E;

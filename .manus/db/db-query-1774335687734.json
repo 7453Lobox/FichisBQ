@@ -1,9 +1,0 @@
-{
-  "query": "CREATE TABLE `orders` (\n\t`id` int AUTO_INCREMENT NOT NULL,\n\t`customerName` varchar(255) NOT NULL,\n\t`customerPhone` varchar(20) NOT NULL,\n\t`items` text NOT NULL,\n\t`totalPrice` int NOT NULL,\n\t`paymentMethod` varchar(50),\n\t`status` enum('nuevo','en_preparacion','listo','entregado','cancelado') NOT NULL DEFAULT 'nuevo',\n\t`notes` text,\n\t`createdAt` timestamp NOT NULL DEFAULT (now()),\n\t`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,\n\tCONSTRAINT `orders_id` PRIMARY KEY(`id`)\n);",
-  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway04.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3L1D1n993EUa7ZT.root --database ZAf6EHxtQifi3Kavc8aaUS --execute CREATE TABLE `orders` (\n\t`id` int AUTO_INCREMENT NOT NULL,\n\t`customerName` varchar(255) NOT NULL,\n\t`customerPhone` varchar(20) NOT NULL,\n\t`items` text NOT NULL,\n\t`totalPrice` int NOT NULL,\n\t`paymentMethod` varchar(50),\n\t`status` enum('nuevo','en_preparacion','listo','entregado','cancelado') NOT NULL DEFAULT 'nuevo',\n\t`notes` text,\n\t`createdAt` timestamp NOT NULL DEFAULT (now()),\n\t`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,\n\tCONSTRAINT `orders_id` PRIMARY KEY(`id`)\n);",
-  "rows": [],
-  "messages": [],
-  "stdout": "",
-  "stderr": "",
-  "execution_time_ms": 426
-}

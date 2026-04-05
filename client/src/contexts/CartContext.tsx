@@ -1,19 +1,11 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-export interface Modification {
-  ingredient: string;
-  type: 'added' | 'removed';
-  price: number;
-}
-
 export interface CartItem {
   id: string;
   nombre: string;
   precio: number;
   cantidad: number;
   categoria: string;
-  modifications?: Modification[];
-  basePrice?: number;
 }
 
 interface CartContextType {
@@ -21,7 +13,6 @@ interface CartContextType {
   addItem: (item: CartItem) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, cantidad: number) => void;
-  updateItem: (id: string, updates: Partial<CartItem>) => void;
   clearCart: () => void;
   total: number;
 }
@@ -33,15 +24,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const addItem = (newItem: CartItem) => {
     setItems((prevItems) => {
-      if (newItem.modifications && newItem.modifications.length > 0) {
-        return [...prevItems, newItem];
-      }
-      const existingItem = prevItems.find(
-        (item) => item.id === newItem.id && !item.modifications
-      );
+      const existingItem = prevItems.find((item) => item.id === newItem.id);
       if (existingItem) {
         return prevItems.map((item) =>
-          item.id === newItem.id && !item.modifications
+          item.id === newItem.id
             ? { ...item, cantidad: item.cantidad + newItem.cantidad }
             : item
         );
@@ -66,14 +52,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const updateItem = (id: string, updates: Partial<CartItem>) => {
-    setItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, ...updates } : item
-      )
-    );
-  };
-
   const clearCart = () => {
     setItems([]);
   };
@@ -81,7 +59,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const total = items.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
 
   return (
-    <CartContext.Provider value={{ items, addItem, removeItem, updateQuantity, updateItem, clearCart, total }}>
+    <CartContext.Provider value={{ items, addItem, removeItem, updateQuantity, clearCart, total }}>
       {children}
     </CartContext.Provider>
   );

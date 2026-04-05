@@ -1,30 +1,19 @@
 {
-  "Hamburguesas": [
-    {"nombre": "Dublín (Clásica Especial)", "descripcion": "Carne artesanal 130 GR, Pan de la casa, Queso mozarela, Queso cheddar, Tocineta Premium, Cebolla crunchy, Lechuga crespa, Tomate milano.", "precio": 18000},
-    {"nombre": "Baggi (Pollo)", "descripcion": "Pechuga a la plancha 130 GR, Pan de la casa, Queso mozarela, Tocineta, Aros de cebolla, Guacamole, Lechuga crespa, Tomate milano.", "precio": 19000},
-    {"nombre": "Floky (Costeña)", "descripcion": "Carne artesanal 130 GR, Pan de la casa, Butifarra Premium, Chorizo de ternera, Queso costeño asado, Cebolla caramelizada, Lechuga crespa, Tomate milano.", "precio": 21000},
-    {"nombre": "Valhala (Mix de Quesos)", "descripcion": "Carne artesanal 130 GR, Pan de la casa, Queso mozarela, Queso costeño asado, Sour cream, Tocineta en trozos en salsa BBQ especial, Lechuga crespa, Tomate milano.", "precio": 20000},
-    {"nombre": "Valkiria (Piña)", "descripcion": "Carne artesanal 130 GR, Pan de la casa, Queso mozarela, tocineta, Piña caramelizada, Cebolla crunchy, Lechuga crespa, Tomate milano.", "precio": 19000},
-    {"nombre": "Magnus (Doble)", "descripcion": "Doble Carne artesanal 260 GR, Pan de la casa, Queso mozarela, Queso mozarela doble crema gratinado, Queso cheddar, Doble tocineta, Doble aro de cebolla, Lechuga, Tomate milano.", "precio": 26000},
-    {"nombre": "Tara (Sencilla)", "descripcion": "Carne artesanal 130 GR, Pan de la casa, Queso mozarela, Papa chongo, Lechuga, Tomate milano. No incluye papas a la francesa.", "precio": 12000}
+  "Entradas": [
+    {"nombre": "Chorizo de ternera con bollo", "descripcion": "Chorizo de ternera, bollo limpio, limón", "precio": 7500},
+    {"nombre": "Butifarra con bollo", "descripcion": "Butifarra Premium, bollo limpio, limón", "precio": 7500},
+    {"nombre": "Patacón x 5", "descripcion": "Patacón, pico de gallo, sour cream", "precio": 8000}
   ],
-  "Perros Calientes": [
-    {"nombre": "Sencillo", "descripcion": "Pan súper perro, Salchicha Long, Papa chongo.", "precio": 7000},
-    {"nombre": "Zico (Italiano)", "descripcion": "Pan súper perro, Salchicha Long, Queso mozarela, Lechuga, Papa chongo.", "precio": 9000},
-    {"nombre": "Aplastado", "descripcion": "Pan súper perro, Salchicha Long, Queso mozarela, Lechuga, Papa chongo.", "precio": 8000},
-    {"nombre": "Gemelo", "descripcion": "Pan súper perro, Doble Salchicha Long, Queso mozarela, Tocineta, Lechuga, Papa chongo.", "precio": 11000},
-    {"nombre": "Hawaiano Especial", "descripcion": "Pan finas hierbas, Salchicha Americana súper, Queso mozarela doble crema, Tocineta, piña, Lechuga, Papa chongo.", "precio": 17000},
-    {"nombre": "Kanuto (Ranchero)", "descripcion": "Pan finas hierbas, Salchicha ranchera súper, Queso mozarela, Tocineta Premium, Cebolla caramelizada, Lechuga, Papa chongo.", "precio": 18000},
-    {"nombre": "Suizo Premium", "descripcion": "Pan finas hierbas, Salchicha suiza Premium, Queso mozarela, Tocineta Premium, Cebolla crunchy, Lechuga.", "precio": 17000},
-    {"nombre": "Munsol (Costeño)", "descripcion": "Pan finas hierbas, Salchicha americana súper, Butifarra Premium en trozos, Chorizo de ternera en trozos, Queso costeño rallado.", "precio": 17000}
+  "Adicionales": [
+    {"nombre": "Tocineta", "precio": 2800},
+    {"nombre": "Queso Mozarela", "precio": 5000},
+    {"nombre": "Queso Costeño", "precio": 4000},
+    {"nombre": "Porción de Papas", "precio": 8000},
+    {"nombre": "Carne de Hamburguesa", "precio": 7000},
+    {"nombre": "Bollo Limpio", "precio": 2000}
   ],
-  "Sandwich Panini": [
-    {"nombre": "Jamón y Queso Panini", "descripcion": "Pan finas hierbas, Queso mozarela, Jamón, Papa chongo.", "precio": 11000},
-    {"nombre": "Hawaiano Panini", "descripcion": "Pan finas hierbas, Jamón, Queso mozarela tajado, Piña, Papa chongo.", "precio": 12000},
-    {"nombre": "Club Panini (Pollo)", "descripcion": "Pan finas hierbas, Pechuga a la plancha, Tocineta, Maíz, Papa chongo.", "precio": 15000},
-    {"nombre": "Jamón y Queso Gratinado", "descripcion": "Pan finas hierbas, Jamón, Queso mozarela tajado, Lechuga crespa, Tomate milano, Queso mozarela doble crema gratinado.", "precio": 14000},
-    {"nombre": "Hawaiano Gratinado", "descripcion": "Pan finas hierbas, Jamón, Queso tajado, Piña, Lechuga crespa, Tomate milano, Queso mozarela doble crema gratinado.", "precio": 15000},
-    {"nombre": "Club (Pollo) Gratinado", "descripcion": "Pan finas hierbas, Pechuga a la plancha, Tocineta, Queso mozarela tajado, Maíz, Lechuga crespa, Tomate milano, Queso mozarela doble crema gratinado.", "precio": 19000}
+  "Especiales": [
+    {"nombre": "Patacón", "descripcion": "Proteína de tu elección (solo pollo, solo carne o mixta), Patacón de plátano verde, Guacamole, Pico de gallo, Papa chongo, Queso mozarela doble crema gratinado.", "precio": 20000}
   ],
   "Salchipapas y Patatas": [
     {"nombre": "Sencilla", "descripcion": "Papas a la francesa, Salchicha, Queso costeño, Lechuga, Papa chongo.", "precio": 11000},
@@ -36,7 +25,8 @@
     {"nombre": "Pollo BBQ", "descripcion": "Papas a la francesa, Trozos de pechuga en salsa BBQ especial, Queso costeño rallado, Lechuga, Papa chongo.", "precio": 21000},
     {"nombre": "Mecha (Desmechada)", "descripcion": "Papas a la francesa, Queso costeño rallado, Lechuga, Papa chongo, Proteína de tu elección (solo pollo, solo carne o mixta).", "precio": 20000},
     {"nombre": "Puebla (Mexicanas)", "descripcion": "Papas a la francesa, Pechuga en trozos, Salchicha súper, Sour cream, Guacamole, Pico de gallo, Lechuga, Papa chongo.", "precio": 21000},
-    {"nombre": "Americanas", "descripcion": "Papas a la francesa, Tocineta Premium en trozos, Queso cheddar, Aros de cebolla.", "precio": 14000}
+    {"nombre": "Americanas", "descripcion": "Papas a la francesa, Tocineta Premium en trozos, Queso cheddar, Aros de cebolla.", "precio": 14000},
+    {"nombre": "Fichi's Suprema", "descripcion": "Papas a la francesa, Carne desmechada, Pollo desmechado, Chorizo de ternera, Tocineta Premium, Salchicha súper, Queso mozarela doble crema gratinado, Maíz, Lechuga, Papa chongo.", "precio": 40000}
   ],
   "Patatas Mini": [
     {"nombre": "Mini Fichi's Gratinada", "descripcion": "Papas a la francesa, Chorizo de ternera, Tocineta Premium, Salchicha súper, Queso mozarela doble crema gratinado, Maíz, Lechuga, Papa chongo.", "precio": 16000},
@@ -45,32 +35,42 @@
     {"nombre": "Mini Ranch (Ranchera)", "descripcion": "Papas a la francesa, Salchicha ranchera súper, Chorizo de ternera, Queso costeño, Lechuga, Papa chongo.", "precio": 14000},
     {"nombre": "Mini Puebla (Mexicana)", "descripcion": "Papas a la francesa, Pechuga en trozos, Salchicha súper, Guacamole, Pico de gallo, Sour cream, Lechuga, Papa chongo.", "precio": 15000}
   ],
-  "Asados": [
-    {"nombre": "Pechuga a la plancha", "descripcion": "250 GR Pechuga, Ensalada verde (lechuga, zanahoria, tomate, vinagreta), Papas a la francesa.", "precio": 20000},
-    {"nombre": "Pechuga Gratinada", "descripcion": "250 GR Pechuga a la plancha, Queso mozarela doble crema gratinado, Ensalada verde (lechuga, zanahoria, tomate, vinagreta), Papas a la francesa.", "precio": 23000},
-    {"nombre": "Cerdo a la Plancha", "descripcion": "250 GR Cerdo, Ensalada verde (lechuga, zanahoria, tomate, vinagreta), Papas a la francesa.", "precio": 21000},
-    {"nombre": "Punta Gorda a la Plancha", "descripcion": "250 GR Punta Gorda, Ensalada verde (lechuga, zanahoria, tomate, vinagreta), Papas a la francesa.", "precio": 23000}
-  ],
-  "Entradas": [
-    {"nombre": "Chorizo de ternera con bollo", "descripcion": "Chorizo de ternera, bollo limpio, limón", "precio": 7500},
-    {"nombre": "Butifarra con bollo", "descripcion": "Butifarra Premium, bollo limpio, limón", "precio": 7500},
-    {"nombre": "Patacón x 5", "descripcion": "Patacón, pico de gallo, sour cream", "precio": 8000}
-  ],
   "Chuzos Desgranados": [
     {"nombre": "Desgranado de Pollo", "descripcion": "Pechuga en trozos, Bollo limpio, Queso costeño rallado, Maíz, Lechuga, Papa chongo.", "precio": 17000},
     {"nombre": "Desgranado Mixto", "descripcion": "Pechuga en trozos, Carne en trozos, Bollo limpio, Queso costeño rallado, Maíz, Lechuga, Papa chongo.", "precio": 18000},
     {"nombre": "Desgranado Fichi's Especial", "descripcion": "Chorizo de ternera, Butifarra Premium, Salchicha súper, Tocineta Premium, Pechuga en trozos, Carne en trozos, Bollo limpio, Queso costeño, Maíz, Lechuga, Papa chongo.", "precio": 20000}
   ],
-  "Especiales": [
-    {"nombre": "Patacón", "descripcion": "Proteína de tu elección (solo pollo, solo carne o mixta), Patacón de plátano verde, Guacamole, Pico de gallo, Papa chongo, Queso mozarela doble crema gratinado.", "precio": 20000},
-    {"nombre": "Fichi's Suprema", "descripcion": "Papas a la francesa, Carne desmechada, Pollo desmechado, Chorizo de ternera, Tocineta Premium, Salchicha súper, Queso mozarela doble crema gratinado, Maíz, Lechuga, Papa chongo.", "precio": 40000}
+  "Hamburguesas": [
+    {"nombre": "Dublín (Clásica Especial)", "descripcion": "Carne artesanal 130 GR, Pan de la casa, Queso mozarela, Queso cheddar, Tocineta Premium, Cebolla crunchy, Lechuga crespa, Tomate milano.", "precio": 18000},
+    {"nombre": "Baggi (Pollo)", "descripcion": "Pechuga a la plancha 130 GR, Pan de la casa, Queso mozarela, Tocineta, Aros de cebolla, Guacamole, Lechuga crespa, Tomate milano.", "precio": 19000},
+    {"nombre": "Floky (Costeña)", "descripcion": "Carne artesanal 130 GR, Pan de la casa, Butifarra Premium, Chorizo de ternera, Queso costeño asado, Cebolla caramelizada, Lechuga crespa, Tomate milano.", "precio": 21000},
+    {"nombre": "Valhala (Mix de Quesos)", "descripcion": "Carne artesanal 130 GR, Pan de la casa, Queso mozarela, Queso costeño asado, Sour cream, Tocineta en trozos en salsa BBQ especial, Lechuga crespa, Tomate milano.", "precio": 20000},
+    {"nombre": "Valkiria (Piña)", "descripcion": "Carne artesanal 130 GR, Pan de la casa, Queso mozarela, tocineta, Piña caramelizada, Cebolla crunchy, Lechuga crespa, Tomate milano.", "precio": 19000},
+    {"nombre": "Magnus (Doble)", "descripcion": "Doble Carne artesanal 260 GR, Pan de la casa, Queso mozarela, Queso mozarela doble crema gratinado, Queso cheddar, Doble tocineta, Doble aro de cebolla, Lechuga, Tomate milano.", "precio": 26000},
+    {"nombre": "Tara (Sencilla)", "descripcion": "Carne artesanal 130 GR, Pan de la casa, Queso mozarela, Papa chongo, Lechuga, Tomate milano. No incluye papas a la francesa.", "precio": 12000}
   ],
-  "Adicionales": [
-    {"nombre": "Tocineta", "precio": 2800},
-    {"nombre": "Queso Mozarela", "precio": 5000},
-    {"nombre": "Queso Costeño", "precio": 4000},
-    {"nombre": "Porción de Papas", "precio": 8000},
-    {"nombre": "Carne de Hamburguesa", "precio": 7000},
-    {"nombre": "Bollo Limpio", "precio": 2000}
+  "Perros": [
+    {"nombre": "Sencillo", "descripcion": "Pan súper perro, Salchicha Long, Papa chongo.", "precio": 7000},
+    {"nombre": "Zico (Italiano)", "descripcion": "Pan súper perro, Salchicha Long, Queso mozarela, Lechuga, Papa chongo.", "precio": 9000},
+    {"nombre": "Aplastado", "descripcion": "Pan súper perro, Salchicha Long, Queso mozarela, Lechuga, Papa chongo.", "precio": 8000},
+    {"nombre": "Gemelo", "descripcion": "Pan súper perro, Doble Salchicha Long, Queso mozarela, Tocineta, Lechuga, Papa chongo.", "precio": 11000},
+    {"nombre": "Hawaiano Especial", "descripcion": "Pan finas hierbas, Salchicha Americana súper, Queso mozarela doble crema, Tocineta, piña, Lechuga, Papa chongo.", "precio": 17000},
+    {"nombre": "Kanuto (Ranchero)", "descripcion": "Pan finas hierbas, Salchicha ranchera súper, Queso mozarela, Tocineta Premium, Cebolla caramelizada, Lechuga, Papa chongo.", "precio": 18000},
+    {"nombre": "Suizo Premium", "descripcion": "Pan finas hierbas, Salchicha suiza Premium, Queso mozarela, Tocineta Premium, Cebolla crunchy, Lechuga.", "precio": 17000},
+    {"nombre": "Munsol (Costeño)", "descripcion": "Pan finas hierbas, Salchicha americana súper, Butifarra Premium en trozos, Chorizo de ternera en trozos, Queso costeño rallado.", "precio": 17000}
+  ],
+  "Sandwich Gratinado": [
+    {"nombre": "Jamón y Queso Gratinado", "descripcion": "Pan finas hierbas, Jamón, Queso mozarela tajado, Lechuga crespa, Tomate milano, Queso mozarela doble crema gratinado.", "precio": 14000},
+    {"nombre": "Hawaiano Gratinado", "descripcion": "Pan finas hierbas, Jamón, Queso tajado, Piña, Lechuga crespa, Tomate milano, Queso mozarela doble crema gratinado.", "precio": 15000},
+    {"nombre": "Club (Pollo) Gratinado", "descripcion": "Pan finas hierbas, Pechuga a la plancha, Tocineta, Queso mozarela tajado, Maíz, Lechuga crespa, Tomate milano, Queso mozarela doble crema gratinado.", "precio": 19000}
+  ],
+  "Sandwich Panini": [
+    {"nombre": "Jamón y Queso Panini", "descripcion": "Pan finas hierbas, Queso mozarela, Jamón, Papa chongo.", "precio": 11000},
+    {"nombre": "Hawaiano Panini", "descripcion": "Pan finas hierbas, Jamón, Queso mozarela tajado, Piña, Papa chongo.", "precio": 12000},
+    {"nombre": "Club Panini (Pollo)", "descripcion": "Pan finas hierbas, Pechuga a la plancha, Tocineta, Maíz, Papa chongo.", "precio": 15000}
+  ],
+  "Carnes": [
+    {"nombre": "Pechuga a la plancha", "descripcion": "250 GR Pechuga, Ensalada verde (lechuga, zanahoria, tomate, vinagreta), Papas a la francesa.", "precio": 20000},
+    {"nombre": "Pechuga Gratinada", "descripcion": "250 GR Pechuga a la plancha, Queso mozarela doble crema gratinado, Ensalada verde (lechuga, zanahoria, tomate, vinagreta), Papas a la francesa.", "precio": 23000}
   ]
 }
