@@ -386,6 +386,14 @@ export default function Home() {
               <h3 className="font-bold text-lg mb-2">Ubicación</h3>
               <p className="text-black">Calle 47B # 27 - 06 Local 2</p>
               <p className="text-black">Barranquilla, Colombia</p>
+              <a
+                href="https://maps.google.com/?q=Calle+47B+27-06+Barranquilla+Colombia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-4 bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-all duration-300"
+              >
+                Ver en Google Maps
+              </a>
             </div>
 
             <div className="viking-shield p-8">
@@ -438,7 +446,7 @@ export default function Home() {
                     <span key={i} className="text-yellow-400 text-xl">⭐</span>
                   ))}
                 </div>
-                <p className="text-foreground dark:text-white mb-4 italic">"{testimonial.text}"</p>
+                <p className="text-black dark:text-white mb-4 italic">\"{testimonial.text}\"</p>
                 <p className="font-bold text-primary dark:text-accent">- {testimonial.author}</p>
                 {testimonial.verified && (
                   <p className="text-xs text-muted-foreground mt-2">Cliente verificado en Google</p>
@@ -453,7 +461,7 @@ export default function Home() {
       <footer className="bg-dark text-white py-8">
         <div className="container text-center">
           <p className="font-bold mb-2 text-primary">Fichi's BBQ - Donde los Guerreros Comen</p>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-black">
             Hecho con fuego y pasión por la buena comida
           </p>
           <div className="flex justify-center gap-4 mt-4">
