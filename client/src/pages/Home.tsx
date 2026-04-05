@@ -384,22 +384,23 @@ export default function Home() {
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">📍</div>
               <h3 className="font-bold text-lg mb-2">Ubicación</h3>
-              <p>Calle 47B # 27 - 06 Local 2</p>
-              <p>Barranquilla, Colombia</p>
+              <p className="text-black">Calle 47B # 27 - 06 Local 2</p>
+              <p className="text-black">Barranquilla, Colombia</p>
+              <a href="https://maps.google.com/?q=Calle+47B+27-06+Barranquilla" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm">Ver en Google Maps</a>
             </div>
 
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">⏰</div>
               <h3 className="font-bold text-lg mb-2">Horario</h3>
-              <p>Martes a Domingo</p>
-              <p>4:00 PM - 11:00 PM</p>
+              <p className="text-black">Martes a Domingo</p>
+              <p className="text-black">4:00 PM - 11:00 PM</p>
             </div>
 
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">📱</div>
               <h3 className="font-bold text-lg mb-2">Teléfono</h3>
-              <p>+57 3022525442</p>
-              <p className="text-sm mt-2">WhatsApp disponible</p>
+              <p className="text-black">+57 3022525442</p>
+              <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="text-sm mt-2 text-green-600 hover:text-green-700 font-bold transition-colors inline-block">WhatsApp disponible</a>
             </div>
           </div>
 
@@ -452,8 +453,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-dark text-white py-8">
         <div className="container text-center">
-          <p className="font-bold mb-2">Fichi's BBQ - Donde los Guerreros Comen</p>
-          <p className="text-sm text-gray-400">
+          <p className="font-bold mb-2 text-primary">Fichi's BBQ - Donde los Guerreros Comen</p>
+          <p className="text-sm text-black">
             Hecho con fuego y pasión por la buena comida
           </p>
           <div className="flex justify-center gap-4 mt-4">
