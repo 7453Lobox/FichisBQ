@@ -1,7 +1,13 @@
-import MenuCard from '@/components/MenuCard';
 import FloatingCart from '@/components/FloatingCart';
-import { useState } from 'react';
+import CategoryCard from '@/components/CategoryCard';
+import MenuCard from '@/components/MenuCard';
+import { useState, useEffect } from 'react';
+import React from 'react';
 import menuData from '@/lib/menuData.json';
+import { useAuth } from '@/_core/hooks/useAuth';
+import { useTheme } from '@/contexts/ThemeContext';
+import { getDishImage } from '@/lib/dishImages';
+import { Sun, Moon, ArrowLeft } from 'lucide-react';
 
 /**
  * Home Page - Fichi's BBQ Landing Page
@@ -9,32 +15,90 @@ import menuData from '@/lib/menuData.json';
  * Features: Hero, Menu, Gallery, Contact, Shopping Cart
  */
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
+
+  const [currentTime, setCurrentTime] = useState(new Date());
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const categories = Object.keys(menuData);
-  const displayedItems = selectedCategory
-    ? menuData[selectedCategory as keyof typeof menuData] || []
-    : Object.values(menuData).flat();
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 60000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const isOpen = () => {
+    const day = currentTime.getDay();
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+    const timeInMinutes = hours * 60 + minutes;
+    if (day === 1) return false;
+    const openTime = 16 * 60;
+    const closeTime = 23 * 60;
+    return timeInMinutes >= openTime && timeInMinutes < closeTime;
+  };
+
+  const getCategoryImage = (categoryName: string): string => {
+    const imageMap: { [key: string]: string } = {
+      'Hamburguesas': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/dublin-hamburguesa-nCWdTTqQypcmyQv3mN7wqY.webp',
+      'Perros Calientes': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/perro-hawaiano-dZqCQpavCNWwakR5mvmamx.webp',
+      'Sandwich Panini': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/sandwich-gratinado-fbUfKHgGYSgaGsoCk2GKPV.webp',
+      'Salchipapas y Patatas': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/salchipapas-gratinada-AVHv5n4M4Thbxbj2EogMci.webp',
+      'Patatas Mini': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/salchipapas-gratinada-AVHv5n4M4Thbxbj2EogMci.webp',
+      'Asados': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/pechuga-plancha-8D2eX7LMJ4YtD4L3LmebTc.webp',
+      'Entradas': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/chorizo-ternera-bollo-MUzLRbGAnPCDTwwQ9Hn4yA.webp',
+      'Chuzos Desgranados': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/salchipapas-gratinada-AVHv5n4M4Thbxbj2EogMci.webp',
+      'Especiales': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/fichis-suprema-BQTDs3jRPXsojZfyrxvcA4.webp',
+      'Adicionales': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/patacon-x5-oXJGdWift7tfeKEw5JbkUR.webp',
+    };
+    return imageMap[categoryName] || 'https://via.placeholder.com/400x300';
+  };
+
+  const selectedCategoryPlatos = selectedCategory 
+    ? (menuData[selectedCategory as keyof typeof menuData] as any[]) || []
+    : [];
 
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="sticky top-0 z-30 bg-white border-b-4 border-accent shadow-lg">
-        <div className="container py-3 md:py-4 flex items-center justify-between gap-4">
-          <h1 className="viking-title text-2xl md:text-3xl text-primary">Fichi's BBQ</h1>
-          <div className="hidden md:flex gap-6">
-            <a href="#menu" className="font-semibold text-foreground hover:text-primary transition-colors">
-              Menu
-            </a>
-            <a href="#galeria" className="font-semibold text-foreground hover:text-primary transition-colors">
-              Galeria
-            </a>
-            <a href="#contacto" className="font-semibold text-foreground hover:text-primary transition-colors">
-              Contacto
-            </a>
+      <nav className="sticky top-0 z-30 bg-white dark:bg-primary border-b-4 border-accent shadow-lg">
+        <div className="container py-1 md:py-2 flex items-center justify-between gap-4">
+          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="cursor-pointer">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/fichi-logo_3195d514.png" alt="Fichi's BBQ" className="h-12 md:h-16 object-contain drop-shadow-lg hover:drop-shadow-2xl transition-all duration-300 hover:scale-105" />
+          </a>
+          
+          <div className="flex-1 text-center hidden md:block">
+            <p className="text-2xl md:text-3xl font-bold text-primary dark:text-accent italic" style={{fontFamily: 'Georgia, serif'}}>Come Rico, Bebe Rico!!!</p>
           </div>
-          <div className="text-xs md:text-sm font-bold text-primary whitespace-nowrap">
-            +57 3007881212
+          
+          <div className="flex items-center gap-6 ml-auto">
+            <div className="hidden lg:flex gap-6 items-center">
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 dark:bg-accent/30">
+                <span className={`w-3 h-3 rounded-full ${isOpen() ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`}></span>
+                <span className="text-sm font-bold text-foreground dark:text-white">{isOpen() ? 'Abierto' : 'Cerrado'}</span>
+              </div>
+              <a href="#menu" className="font-semibold text-foreground dark:text-white hover:text-primary dark:hover:text-accent transition-colors">
+                Menu
+              </a>
+              <a href="#galeria" className="font-semibold text-foreground dark:text-white hover:text-primary dark:hover:text-accent transition-colors">
+                Galeria
+              </a>
+              <a href="#contacto" className="font-semibold text-foreground dark:text-white hover:text-primary dark:hover:text-accent transition-colors">
+                Contacto
+              </a>
+            </div>
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg bg-gray-200 dark:bg-accent text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-accent/80 transition-colors"
+              title="Cambiar tema"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs md:text-sm font-bold text-primary dark:text-white hover:text-accent dark:hover:text-accent transition-colors whitespace-nowrap">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp" className="w-5 h-5 object-contain" />
+              +57 3022525442
+            </a>
           </div>
         </div>
       </nav>
@@ -56,7 +120,7 @@ export default function Home() {
               Bienvenido al Salón de Banquetes
             </h2>
             <p className="text-base md:text-2xl mb-8 text-white/90">
-              Donde los guerreros se reúnen para disfrutar de la mejor comida BBQ
+              Donde los guerreros se reúnen para disfrutar<br className="hidden md:block" /> de la mejor comida BBQ
             </p>
             <a
               href="#menu"
@@ -72,52 +136,116 @@ export default function Home() {
       <section id="menu" className="py-16 md:py-24 bg-background">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="viking-title text-4xl md:text-5xl text-primary mb-4">
-              Nuestro Menú Épico
+            <h2 className="viking-title text-4xl md:text-5xl text-primary mb-4 font-black dark:bg-white/80 dark:text-primary dark:px-4 dark:py-2 dark:rounded-lg dark:inline-block">
+              Nuestro<br />Menú Épico
             </h2>
             <div className="h-1 w-24 bg-accent mx-auto" />
           </div>
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap gap-3 justify-center mb-12">
-            <button
-              onClick={() => setSelectedCategory(null)}
-              className={`px-6 py-2 rounded-full font-bold transition-all ${
-                selectedCategory === null
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-white border-2 border-accent text-primary hover:bg-accent/10'
-              }`}
-            >
-              Todos
-            </button>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-6 py-2 rounded-full font-bold transition-all ${
-                  selectedCategory === cat
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-white border-2 border-accent text-primary hover:bg-accent/10'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+          {/* Show categories or dishes based on selection */}
+          {!selectedCategory ? (
+            // Category Cards Grid
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {Object.entries(menuData).map(([categoryName, platos]) => (
+                <div
+                  key={categoryName}
+                  onClick={() => setSelectedCategory(categoryName)}
+                  className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer border-2 border-accent"
+                >
+                  <div className="relative aspect-square overflow-hidden">
+                    <img
+                      src={getCategoryImage(categoryName)}
+                      alt={categoryName}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-4 text-center">
+                    <h3 className="font-black text-3xl text-black mb-3">{categoryName}</h3>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedCategory(categoryName);
+                      }}
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 rounded font-semibold transition-colors"
+                    >
+                      Menú
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            // Dishes Grid with Back Button
+            <div>
+              {/* Back Button */}
+              <div className="flex items-center justify-between mb-8">
+                <button
+                  onClick={() => setSelectedCategory(null)}
+                  className="flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-lg font-semibold transition-colors"
+                >
+                  <ArrowLeft size={20} />
+                  Atrás
+                </button>
+                <h2 className="text-3xl md:text-4xl font-black text-primary dark:text-white">
+                  {selectedCategory}
+                </h2>
+                <div className="w-24" /> {/* Spacer for centering */}
+              </div>
 
-          {/* Menu Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {displayedItems.map((item: any) => (
-              <MenuCard
-                key={item.nombre}
-                id={item.nombre.toLowerCase().replace(/\s+/g, '-')}
-                nombre={item.nombre}
-                descripcion={item.descripcion}
-                precio={item.precio}
-                categoria={selectedCategory || 'Menu'}
-              />
-            ))}
-          </div>
+              {/* Dishes Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                {selectedCategoryPlatos.map((plato: any) => (
+                  <MenuCard
+                    key={plato.nombre}
+                    id={plato.nombre.toLowerCase().replace(/\s+/g, '-')}
+                    nombre={plato.nombre}
+                    descripcion={plato.descripcion}
+                    precio={plato.precio}
+                    categoria={selectedCategory}
+                    imagen={getDishImage(plato.nombre)}
+                  />
+                ))}
+              </div>
+
+              {/* Other Categories Below */}
+              <div className="mt-20 pt-16 border-t-4 border-accent">
+                <h3 className="text-2xl font-black text-primary dark:text-white mb-8 text-center">
+                  Otras Categorías
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {Object.entries(menuData).map(([categoryName, platos]) => 
+                    categoryName !== selectedCategory ? (
+                      <div
+                        key={categoryName}
+                        onClick={() => setSelectedCategory(categoryName)}
+                        className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer border-2 border-accent"
+                      >
+                        <div className="relative aspect-square overflow-hidden">
+                          <img
+                            src={getCategoryImage(categoryName)}
+                            alt={categoryName}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="p-4 text-center">
+                          <h3 className="font-black text-2xl text-black mb-3">{categoryName}</h3>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedCategory(categoryName);
+                            }}
+                            className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 rounded font-semibold transition-colors text-sm"
+                          >
+                            Ver Menú
+                          </button>
+                        </div>
+                      </div>
+                    ) : null
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -125,23 +253,28 @@ export default function Home() {
       <section id="galeria" className="py-16 md:py-24 bg-white">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="viking-title text-4xl md:text-5xl text-primary mb-4">
+            <h2 className="viking-title text-4xl md:text-5xl text-primary mb-4 font-black">
               Galería en Vivo
             </h2>
             <div className="h-1 w-24 bg-accent mx-auto" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+            {[
+              { id: 1, src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/gallery-eating-1-29mCR4wAsXFDjizF7bK5Xf.webp', alt: 'Mujer disfrutando carnes BBQ' },
+              { id: 2, src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/gallery-eating-2-5DCFg2GaaDFkUomEUY9uKZ.webp', alt: 'Amigos disfrutando hamburguesas' },
+              { id: 3, src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/gallery-eating-3-4zi2eXbdsdpngN7hXBdAQJ.webp', alt: 'Hombre disfrutando pechuga a la plancha' },
+              { id: 4, src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/gallery-eating-4-NMJ5tXFhZMnQpwqaqJ4fWb.webp', alt: 'Pareja disfrutando festín BBQ' },
+              { id: 5, src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/gallery-eating-5-9HC6kUUmkBAu7ccZANwvCh.webp', alt: 'Hombre mordiendo hamburguesa jugosa' },
+              { id: 6, src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/gallery-eating-6-2nTNnGBr8azByhazqssSAp.webp', alt: 'Familia disfrutando salchipapas' },
+            ].map((photo) => (
+              <div key={photo.id} className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group">
                 <div className="relative aspect-square bg-muted overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-6xl mb-4">🍖</div>
-                      <p className="text-foreground font-bold">Foto {i}</p>
-                      <p className="text-sm text-muted-foreground">Momentos épicos</p>
-                    </div>
-                  </div>
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
               </div>
             ))}
@@ -154,7 +287,7 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="viking-title text-4xl md:text-5xl text-primary mb-6">
+              <h2 className="viking-title text-4xl md:text-5xl text-primary mb-6 font-black">
                 Calidad Premium
               </h2>
               <p className="text-lg text-foreground mb-4">
@@ -193,7 +326,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="viking-title text-4xl md:text-5xl mb-4">
+            <h2 className="viking-title text-4xl md:text-5xl mb-4 font-black">
               Por Qué Elegir Fichi's
             </h2>
             <div className="h-1 w-24 bg-accent mx-auto" />
@@ -227,7 +360,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container text-center">
-          <h2 className="viking-title text-4xl md:text-5xl text-primary mb-6">
+          <h2 className="viking-title text-4xl md:text-5xl text-primary mb-6 font-black">
             Listo para la Conquista
           </h2>
           <p className="text-xl text-foreground mb-8 max-w-2xl mx-auto">
@@ -245,7 +378,7 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contacto" className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container text-center">
-          <h2 className="viking-title text-4xl md:text-5xl mb-12">Contactanos</h2>
+          <h2 className="viking-title text-4xl md:text-5xl mb-12 font-black">Contactanos</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="viking-shield p-8">
@@ -265,20 +398,53 @@ export default function Home() {
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">📱</div>
               <h3 className="font-bold text-lg mb-2">Teléfono</h3>
-              <p>+57 3007881212</p>
+              <p>+57 3022525442</p>
               <p className="text-sm mt-2">WhatsApp disponible</p>
             </div>
           </div>
 
           <div className="mt-12">
             <a
-              href="https://wa.me/573007881212"
+              href="https://wa.me/573022525442"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-green-600 text-white font-bold py-4 px-8 rounded-lg hover:bg-green-700 transition-all duration-300 hover:-translate-y-1"
             >
               Chatea con nosotros en WhatsApp
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="viking-title text-4xl md:text-5xl text-primary mb-4 font-black dark:bg-white/80 dark:text-primary dark:px-4 dark:py-2 dark:rounded-lg dark:inline-block">
+              Lo Que Dicen Nuestros Clientes
+            </h2>
+            <div className="h-1 w-24 bg-accent mx-auto" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { stars: 5, text: "¡La mejor comida BBQ que he probado! Los platos son increíbles y el servicio es excelente. Definitivamente volveré.", author: "Carlos M.", verified: true },
+              { stars: 5, text: "Fichi's es un lugar épico. La temática vikinga es genial y la comida es de primera calidad. Recomendado 100%.", author: "María L.", verified: true },
+              { stars: 5, text: "Cada plato es una obra maestra. El carrito de compras por WhatsApp es muy práctico. ¡Excelente experiencia!", author: "Juan P.", verified: true },
+            ].map((testimonial, index) => (
+              <div key={index} className="bg-white dark:bg-white/10 rounded-lg p-6 shadow-lg">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.stars)].map((_, i) => (
+                    <span key={i} className="text-yellow-400 text-xl">⭐</span>
+                  ))}
+                </div>
+                <p className="text-foreground dark:text-white mb-4 italic">"{testimonial.text}"</p>
+                <p className="font-bold text-primary dark:text-accent">- {testimonial.author}</p>
+                {testimonial.verified && (
+                  <p className="text-xs text-muted-foreground mt-2">Cliente verificado en Google</p>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -290,10 +456,21 @@ export default function Home() {
           <p className="text-sm text-gray-400">
             Hecho con fuego y pasión por la buena comida
           </p>
+          <div className="flex justify-center gap-4 mt-4">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="Instagram">
+              📷
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="Facebook">
+              👍
+            </a>
+            <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="WhatsApp">
+              💬
+            </a>
+          </div>
         </div>
       </footer>
 
-      {/* Floating Cart */}
+      {/* Floating Cart - Always on top */}
       <FloatingCart />
     </div>
   );
