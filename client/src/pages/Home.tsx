@@ -383,22 +383,22 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">📍</div>
-              <h3 className="font-bold text-lg mb-2">Ubicación</h3>
+              <h3 className="font-bold text-lg mb-2 text-black">Ubicación</h3>
               <p className="text-black">Calle 47B # 27 - 06 Local 2</p>
               <p className="text-black">Barranquilla, Colombia</p>
-              <a href="https://maps.google.com/?q=Calle+47B+27-06+Barranquilla" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm">Ver en Google Maps</a>
+              <a href="https://www.google.com/maps/@10.9703195,-74.7917297,3a,75y,348.63h,89.73t/data=!3m7!1e1!3m5!1subFgpyHJFcpBJNwTl4F01g!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0.27407572451750184%26panoid%3DubFgpyHJFcpBJNwTl4F01g%26yaw%3D348.6278044249931!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 bg-primary text-accent font-bold py-2 px-6 rounded-full hover:opacity-90 transition-all text-sm">Ver en Google Maps</a>
             </div>
 
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">⏰</div>
-              <h3 className="font-bold text-lg mb-2">Horario</h3>
+              <h3 className="font-bold text-lg mb-2 text-black">Horario</h3>
               <p className="text-black">Martes a Domingo</p>
               <p className="text-black">4:00 PM - 11:00 PM</p>
             </div>
 
             <div className="viking-shield p-8">
               <div className="text-4xl mb-4">📱</div>
-              <h3 className="font-bold text-lg mb-2">Teléfono</h3>
+              <h3 className="font-bold text-lg mb-2 text-black">Teléfono</h3>
               <p className="text-black">+57 3022525442</p>
               <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="text-sm mt-2 text-green-600 hover:text-green-700 font-bold transition-colors inline-block">WhatsApp disponible</a>
             </div>
@@ -439,7 +439,7 @@ export default function Home() {
                     <span key={i} className="text-yellow-400 text-xl">⭐</span>
                   ))}
                 </div>
-                <p className="text-foreground dark:text-white mb-4 italic">"{testimonial.text}"</p>
+                <p className="text-black dark:text-black mb-4 italic">"{testimonial.text}"</p>
                 <p className="font-bold text-primary dark:text-accent">- {testimonial.author}</p>
                 {testimonial.verified && (
                   <p className="text-xs text-muted-foreground mt-2">Cliente verificado en Google</p>
@@ -458,14 +458,14 @@ export default function Home() {
             Hecho con fuego y pasión por la buena comida
           </p>
           <div className="flex justify-center gap-4 mt-4">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="Instagram">
-              📷
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Instagram">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" className="w-6 h-6" />
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="Facebook">
-              👍
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Facebook">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_icon.png" alt="Facebook" className="w-6 h-6" />
             </a>
-            <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="WhatsApp">
-              💬
+            <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="WhatsApp">
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp-logo_f5daf00e.png" alt="WhatsApp" className="w-6 h-6" />
             </a>
           </div>
         </div>
