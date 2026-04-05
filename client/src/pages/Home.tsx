@@ -462,13 +462,13 @@ export default function Home() {
           </p>
           <div className="flex justify-center gap-4 mt-4">
             <a href="https://instagram.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Instagram">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" className="w-6 h-6" />
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/instagram_icon_9551fcdb.png" alt="Instagram" className="w-8 h-8" />
             </a>
             <a href="https://facebook.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Facebook">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_icon.png" alt="Facebook" className="w-6 h-6" />
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/facebook_icon_7ea649a7.png" alt="Facebook" className="w-8 h-8" />
             </a>
             <a href="https://wa.me/573022525442?text=Hola%20Fichi's%20BQ%2C%20quisiera%20hacer%20un%20rico%20pedido" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="WhatsApp">
-              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp-logo_f5daf00e.png" alt="WhatsApp" className="w-6 h-6" />
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp_icon_86efb8be.png" alt="WhatsApp" className="w-8 h-8" />
             </a>
           </div>
         </div>
