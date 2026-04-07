@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCart } from '@/contexts/CartContext';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Check } from 'lucide-react';
 import ModificationsModal from './ModificationsModal';
 import { extractIngredientsFromDescription } from '@/lib/ingredientsPrices';
 
@@ -28,7 +28,15 @@ export default function MenuCard({
 }: MenuCardProps) {
   const { addItem } = useCart();
   const [showModifications, setShowModifications] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false);
   const baseIngredients = extractIngredientsFromDescription(descripcion);
+
+  useEffect(() => {
+    if (addedToCart) {
+      const timer = setTimeout(() => setAddedToCart(false), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [addedToCart]);
 
   const handleAddToCart = () => {
     setShowModifications(true);
@@ -44,6 +52,8 @@ export default function MenuCard({
       modifications,
       basePrice: precio,
     });
+    setAddedToCart(true);
+    setShowModifications(false);
   };
 
   return (
@@ -80,11 +90,15 @@ export default function MenuCard({
         <div className="flex justify-end">
           <button
             onClick={handleAddToCart}
-            className="bg-primary text-primary-foreground hover:bg-primary/90 p-2 rounded transition-colors"
+            className={`p-2 rounded transition-all duration-300 ${
+              addedToCart
+                ? 'bg-green-500 text-white scale-110'
+                : 'bg-primary text-primary-foreground hover:bg-primary/90'
+            }`}
             aria-label={`Agregar ${nombre} al carrito`}
             title="Agregar al carrito"
           >
-            <ShoppingCart size={20} />
+            {addedToCart ? <Check size={20} /> : <ShoppingCart size={20} />}
           </button>
         </div>
       </div>

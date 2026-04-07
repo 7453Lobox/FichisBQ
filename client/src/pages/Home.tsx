@@ -1,7 +1,7 @@
 import FloatingCart from '@/components/FloatingCart';
 import CategoryCard from '@/components/CategoryCard';
 import MenuCard from '@/components/MenuCard';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import React from 'react';
 import menuData from '@/lib/menuData.json';
 import { useAuth } from '@/_core/hooks/useAuth';
@@ -27,6 +27,27 @@ export default function Home() {
     const timer = setInterval(() => setCurrentTime(new Date()), 60000);
     return () => clearInterval(timer);
   }, []);
+
+  // Scroll animation observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = document.querySelectorAll('.scroll-slide-up, .scroll-fade-in');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, [selectedCategory]);
 
   const isOpen = () => {
     const day = currentTime.getDay();
@@ -250,7 +271,7 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section id="galeria" className="py-16 md:py-24 bg-white">
+      <section id="galeria" className="py-16 md:py-24 bg-white scroll-slide-up">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="viking-title text-4xl md:text-5xl text-primary mb-4 font-black">
@@ -283,7 +304,7 @@ export default function Home() {
       </section>
 
       {/* Food Showcase Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white scroll-slide-up">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -323,7 +344,7 @@ export default function Home() {
       </section>
 
       {/* Why Us Section */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+      <section className="py-16 md:py-24 bg-primary text-primary-foreground scroll-slide-up">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="viking-title text-4xl md:text-5xl mb-4 font-black">
@@ -421,7 +442,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-background scroll-slide-up">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="viking-title text-4xl md:text-5xl text-primary mb-4 font-black dark:bg-white/80 dark:text-primary dark:px-4 dark:py-2 dark:rounded-lg dark:inline-block">
