@@ -186,7 +186,7 @@ export default function Home() {
                   <ArrowLeft size={20} />
                   Atrás
                 </button>
-                <h2 className="text-3xl md:text-4xl font-black text-primary dark:text-white">
+                <h2 className="text-3xl md:text-4xl font-black text-black">
                   {selectedCategory}
                 </h2>
                 <div className="w-24" /> {/* Spacer for centering */}
