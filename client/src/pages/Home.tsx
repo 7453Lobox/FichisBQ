@@ -6,6 +6,7 @@ import React from 'react';
 import menuData from '@/lib/menuData.json';
 import { useAuth } from '@/_core/hooks/useAuth';
 import { useTheme } from '@/contexts/ThemeContext';
+import { useCart } from '@/contexts/CartContext';
 import { getDishImage } from '@/lib/dishImages';
 import { Sun, Moon, ArrowLeft } from 'lucide-react';
 
@@ -19,6 +20,7 @@ export default function Home() {
   // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
   let { user, loading, error, isAuthenticated, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
+  const { items } = useCart();
 
   const [currentTime, setCurrentTime] = useState(new Date());
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -111,7 +113,7 @@ export default function Home() {
             </div>
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-200 dark:bg-accent text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-accent/80 transition-colors"
+              className="p-2 rounded-lg bg-gray-200 dark:bg-transparent text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-transparent transition-colors"
               title="Cambiar tema"
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
@@ -124,13 +126,18 @@ export default function Home() {
                 const cartBtn = document.querySelector('[aria-label="Abrir carrito"]') as HTMLButtonElement;
                 if (cartBtn) cartBtn.click();
               }}
-              className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors relative"
               aria-label="Abrir carrito desde navbar"
               title="Carrito de compras"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
+              {items.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
+                  {items.length}
+                </span>
+              )}
             </button>
           </div>
         </div>
