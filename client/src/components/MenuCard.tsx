@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useCart } from '@/contexts/CartContext';
-import { useModal } from '@/contexts/ModalContext';
 import { ShoppingCart, Check } from 'lucide-react';
 import ModificationsModal from './ModificationsModal';
 import { extractIngredientsFromDescription } from '@/lib/ingredientsPrices';
@@ -12,7 +11,6 @@ interface MenuCardProps {
   precio: number;
   categoria: string;
   imagen?: string;
-  onAddToCart?: () => void;
 }
 
 /**
@@ -27,10 +25,8 @@ export default function MenuCard({
   precio,
   categoria,
   imagen,
-  onAddToCart,
 }: MenuCardProps) {
   const { addItem } = useCart();
-  const { setIsModificationsModalOpen } = useModal();
   const [showModifications, setShowModifications] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
   const baseIngredients = extractIngredientsFromDescription(descripcion);
@@ -48,7 +44,6 @@ export default function MenuCard({
 
   const handleAddToCart = () => {
     setShowModifications(true);
-    setIsModificationsModalOpen(true);
   };
 
   const handleSaveModifications = (modifications: any[], totalPrice: number) => {
@@ -63,11 +58,7 @@ export default function MenuCard({
     });
     setAddedToCart(true);
     setShowModifications(false);
-    setIsModificationsModalOpen(false);
-    // Reset category and scroll to menu section
-    if (onAddToCart) {
-      onAddToCart();
-    }
+    // Scroll to menu section
     setTimeout(() => {
       const menuSection = document.getElementById('menu');
       if (menuSection) {
@@ -126,10 +117,7 @@ export default function MenuCard({
       {/* Modifications Modal */}
       <ModificationsModal
         isOpen={showModifications}
-        onClose={() => {
-          setShowModifications(false);
-          setIsModificationsModalOpen(false);
-        }}
+        onClose={() => setShowModifications(false)}
         onSave={handleSaveModifications}
         dishName={nombre}
         category={categoria}

@@ -5,7 +5,6 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { CartProvider } from "./contexts/CartContext";
-import { ModalProvider } from "./contexts/ModalContext";
 import Home from "./pages/Home";
 import AdminGallery from "./pages/AdminGallery";
 import AdminOrders from "./pages/AdminOrders";
@@ -37,12 +36,10 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider defaultTheme="dark" switchable>
         <CartProvider>
-          <ModalProvider>
-            <TooltipProvider>
-              <Toaster />
-              <Router />
-            </TooltipProvider>
-          </ModalProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
         </CartProvider>
       </ThemeProvider>
     </ErrorBoundary>
