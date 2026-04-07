@@ -33,6 +33,10 @@ export default function MenuCard({
 
   useEffect(() => {
     if (addedToCart) {
+      // Play yummy sound
+      const audio = new Audio('https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/yummy-sound_a9bc10bf.wav');
+      audio.play().catch((err) => console.log('Audio play error:', err));
+      
       const timer = setTimeout(() => setAddedToCart(false), 2000);
       return () => clearTimeout(timer);
     }
