@@ -42,7 +42,7 @@ function FloatingCartContent() {
 
     let message = `Hola! Quiero hacer un pedido en ${RESTAURANT_NAME}:\n\n`;
     message += `PEDIDO DETALLADO\n`;
-    message += `${'='.repeat(40)}\n\n`;
+    message += `${'='.repeat(34)}\n\n`;
 
     items.forEach((item, index) => {
       message += `${index + 1}. ${item.nombre.toUpperCase()}\n`;
@@ -64,7 +64,7 @@ function FloatingCartContent() {
       message += `   Subtotal: $${(item.precio * item.cantidad).toLocaleString()}\n\n`;
     });
 
-    message += `${'='.repeat(40)}\n`;
+    message += `${'='.repeat(34)}\n`;
     message += `TOTAL: $${total.toLocaleString()}\n\n`;
     message += `📋 DATOS DEL CLIENTE:\n`;
     message += `Nombre: ${checkoutData.nombre}\n`;
