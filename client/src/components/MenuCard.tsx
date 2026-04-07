@@ -94,7 +94,7 @@ export default function MenuCard({
         <div className="flex justify-end">
           <button
             onClick={handleAddToCart}
-            className={`p-2 rounded-full transition-all duration-300 ${
+            className={`px-6 py-2 rounded-full transition-all duration-300 border-2 border-accent ${
               addedToCart
                 ? 'bg-green-500 text-white scale-110'
                 : 'bg-primary text-primary-foreground hover:bg-primary/90'
