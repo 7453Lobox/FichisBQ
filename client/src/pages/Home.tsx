@@ -209,7 +209,7 @@ export default function Home() {
 
               {/* Other Categories Below */}
               <div className="mt-20 pt-16 border-t-4 border-accent">
-                <h3 className="text-2xl font-black text-primary dark:text-white mb-8 text-center">
+                <h3 className="text-2xl font-black text-black mb-8 text-center">
                   Otras Categorías
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
