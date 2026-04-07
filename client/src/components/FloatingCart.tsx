@@ -37,6 +37,11 @@ function FloatingCartContent() {
     return null;
   }
 
+  // Detect if device is iOS
+  const isIOS = () => {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+  };
+
   const generateWhatsAppMessage = (checkoutData: CheckoutData) => {
     if (items.length === 0) return '';
 
@@ -105,8 +110,15 @@ function FloatingCartContent() {
       // Generate and send WhatsApp message
       const message = generateWhatsAppMessage(checkoutData);
       const encodedMessage = encodeURIComponent(message);
-      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-      window.open(whatsappUrl, '_blank');
+      
+      // Use iOS scheme for iOS devices, wa.me for Android/web
+      const whatsappUrl = isIOS()
+        ? `whatsapp://send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`
+        : `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+      
+      if (whatsappUrl) {
+        window.open(whatsappUrl, '_blank');
+      }
 
       // Clear cart after successful order
       clearCart();
