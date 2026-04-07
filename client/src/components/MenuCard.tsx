@@ -12,6 +12,7 @@ interface MenuCardProps {
   precio: number;
   categoria: string;
   imagen?: string;
+  onAddToCart?: () => void;
 }
 
 /**
@@ -26,6 +27,7 @@ export default function MenuCard({
   precio,
   categoria,
   imagen,
+  onAddToCart,
 }: MenuCardProps) {
   const { addItem } = useCart();
   const { setIsModificationsModalOpen } = useModal();
@@ -62,7 +64,10 @@ export default function MenuCard({
     setAddedToCart(true);
     setShowModifications(false);
     setIsModificationsModalOpen(false);
-    // Scroll to menu section (categories)
+    // Reset category and scroll to menu section
+    if (onAddToCart) {
+      onAddToCart();
+    }
     setTimeout(() => {
       const menuSection = document.getElementById('menu');
       if (menuSection) {

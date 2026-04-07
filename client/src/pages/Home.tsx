@@ -243,6 +243,7 @@ export default function Home() {
                     precio={plato.precio}
                     categoria={selectedCategory}
                     imagen={getDishImage(plato.nombre)}
+                    onAddToCart={() => setSelectedCategory(null)}
                   />
                 ))}
               </div>
