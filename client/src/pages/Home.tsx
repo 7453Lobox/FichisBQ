@@ -445,10 +445,21 @@ export default function Home() {
                 <p className="text-black dark:text-black mb-4 italic">"{testimonial.text}"</p>
                 <p className="font-bold text-primary dark:text-accent">- {testimonial.author}</p>
                 {testimonial.verified && (
-                  <p className="text-xs text-muted-foreground mt-2">Cliente verificado en Google</p>
+                  <p className="text-xs text-black mt-2">Cliente verificado en Google</p>
                 )}
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <a
+              href="https://www.google.com/maps/place/fichi's,+Cra.+27,+Suroccidente,+Barranquilla,+Atl%C3%A1ntico/@10.9703807,-74.791762,15z/data=!4m6!3m5!1s0x8ef42d5b31357cbb:0x91c6751df5cc8232!8m2!3d10.9703807!4d-74.791762!16s%2Fg%2F11v62whjb6?utm_campaign=ml-ardl-aht_2025&g_ep=Eg1tbF8yMDI2MDQwMV8wIJvbDyoASAJQAQ%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-accent font-bold py-3 px-8 rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              Ver todas nuestras reseñas en Google
+            </a>
           </div>
         </div>
       </section>
