@@ -185,7 +185,7 @@ export default function Home() {
           {/* Show categories or dishes based on selection */}
           {selectedCategory === null ? (
             // Categories Grid
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6" data-categories-section>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {Object.entries(menuData).map(([categoryName, platos]) => (
                 <div
                   key={categoryName}

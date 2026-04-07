@@ -62,11 +62,11 @@ export default function MenuCard({
     setAddedToCart(true);
     setShowModifications(false);
     setIsModificationsModalOpen(false);
-    // Scroll to categories section
+    // Scroll to menu section (categories)
     setTimeout(() => {
-      const categoriesSection = document.querySelector('[data-categories-section]');
-      if (categoriesSection) {
-        categoriesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const menuSection = document.getElementById('menu');
+      if (menuSection) {
+        menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }, 500);
   };
