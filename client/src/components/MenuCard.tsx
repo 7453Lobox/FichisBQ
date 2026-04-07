@@ -11,6 +11,7 @@ interface MenuCardProps {
   precio: number;
   categoria: string;
   imagen?: string;
+  onAddToCart?: () => void;
 }
 
 /**
@@ -25,6 +26,7 @@ export default function MenuCard({
   precio,
   categoria,
   imagen,
+  onAddToCart,
 }: MenuCardProps) {
   const { addItem } = useCart();
   const [showModifications, setShowModifications] = useState(false);
@@ -58,13 +60,16 @@ export default function MenuCard({
     });
     setAddedToCart(true);
     setShowModifications(false);
-    // Scroll to menu section
+    // Reset category and scroll to menu after notification (2 seconds)
     setTimeout(() => {
+      if (onAddToCart) {
+        onAddToCart();
+      }
       const menuSection = document.getElementById('menu');
       if (menuSection) {
         menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    }, 500);
+    }, 2000);
   };
 
   return (
