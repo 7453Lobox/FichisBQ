@@ -58,6 +58,13 @@ export default function MenuCard({
     });
     setAddedToCart(true);
     setShowModifications(false);
+    // Scroll to menu section
+    setTimeout(() => {
+      const menuSection = document.getElementById('menu');
+      if (menuSection) {
+        menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 500);
   };
 
   return (
