@@ -34,7 +34,7 @@ export default function MenuCard({
   useEffect(() => {
     if (addedToCart) {
       // Play yummy sound
-      const audio = new Audio('https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/ElevenLabs_2026-04-07T05_13_44_Kate-Bright,Friendly&Positivevoice_pvc_sp105_s35_sb92_se32_b_m2_9ba6fdb0.mp3');
+      const audio = new Audio('https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/notification_sound_c83c3154.mp3');
       audio.play().catch((err) => console.log('Audio play error:', err));
       
       const timer = setTimeout(() => setAddedToCart(false), 2000);
