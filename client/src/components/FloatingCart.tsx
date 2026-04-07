@@ -275,7 +275,7 @@ function FloatingCartContent() {
       )}
 
       {/* Modifications Modal */}
-      {editingItemIndex !== null && editingDish && editingItem && (
+      {editingItemIndex !== null && editingItem && (
         <ModificationsModal
           isOpen={editingItemIndex !== null}
           onClose={() => {
@@ -284,8 +284,8 @@ function FloatingCartContent() {
           }}
           dishName={editingItem.nombre}
           category={editingItem.categoria}
-          basePrice={editingDish.precio}
-          baseIngredients={extractIngredientsFromDescription(editingDish.descripcion || '')}
+          basePrice={editingItem.basePrice || (editingDish?.precio || 0)}
+          baseIngredients={extractIngredientsFromDescription(editingDish?.descripcion || '')}
           onSave={handleSaveModifications}
           existingModifications={editingItem.modifications || []}
         />
