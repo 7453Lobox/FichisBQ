@@ -250,7 +250,7 @@ export default function ModificationsModal({
             onClick={handleSave} 
             className="flex-1 bg-primary text-primary-foreground text-xs sm:text-sm md:text-base font-semibold py-2 md:py-3 h-auto hover:bg-primary/90 transition-colors"
           >
-            ✓ Adicionar al Carrito
+            ✓ Continuar
           </Button>
         </div>
       </div>
