@@ -102,7 +102,7 @@ export default function MenuCard({
             aria-label={`Agregar ${nombre} al carrito`}
             title="Agregar al carrito"
           >
-            {addedToCart ? <Check size={20} /> : <ShoppingCart size={20} />}
+            {addedToCart ? <Check size={20} /> : <span className="font-bold">Pedir</span>}
           </button>
         </div>
       </div>
