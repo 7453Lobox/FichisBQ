@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useCart } from '@/contexts/CartContext';
+import { useModal } from '@/contexts/ModalContext';
 import { ShoppingCart, Check } from 'lucide-react';
 import ModificationsModal from './ModificationsModal';
 import { extractIngredientsFromDescription } from '@/lib/ingredientsPrices';
@@ -27,6 +28,7 @@ export default function MenuCard({
   imagen,
 }: MenuCardProps) {
   const { addItem } = useCart();
+  const { setIsModificationsModalOpen } = useModal();
   const [showModifications, setShowModifications] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
   const baseIngredients = extractIngredientsFromDescription(descripcion);
@@ -44,6 +46,7 @@ export default function MenuCard({
 
   const handleAddToCart = () => {
     setShowModifications(true);
+    setIsModificationsModalOpen(true);
   };
 
   const handleSaveModifications = (modifications: any[], totalPrice: number) => {
@@ -58,6 +61,7 @@ export default function MenuCard({
     });
     setAddedToCart(true);
     setShowModifications(false);
+    setIsModificationsModalOpen(false);
     // Scroll to menu section
     setTimeout(() => {
       const menuSection = document.getElementById('menu');
@@ -117,7 +121,10 @@ export default function MenuCard({
       {/* Modifications Modal */}
       <ModificationsModal
         isOpen={showModifications}
-        onClose={() => setShowModifications(false)}
+        onClose={() => {
+          setShowModifications(false);
+          setIsModificationsModalOpen(false);
+        }}
         onSave={handleSaveModifications}
         dishName={nombre}
         category={categoria}

@@ -2,6 +2,7 @@ import { useCart } from '@/contexts/CartContext';
 import type { CartItem } from '@/contexts/CartContext';
 import { ShoppingCart, X, Trash2, Edit2 } from 'lucide-react';
 import { useState } from 'react';
+import { useModal } from '@/contexts/ModalContext';
 import { trpc } from '@/lib/trpc';
 import { toast } from 'sonner';
 import ModificationsModal from './ModificationsModal';
@@ -16,6 +17,7 @@ import menuData from '@/lib/menuData.json';
  */
 function FloatingCartContent() {
   const { items, removeItem, updateQuantity, updateItem, total, clearCart } = useCart();
+  const { isModificationsModalOpen } = useModal();
   const [isOpen, setIsOpen] = useState(false);
   const [editingItemId, setEditingItemId] = useState<string | null>(null);
   const [editingItemIndex, setEditingItemIndex] = useState<number | null>(null);
@@ -140,7 +142,7 @@ function FloatingCartContent() {
   return (
     <>
       {/* Floating Cart Button */}
-      {editingItemId === null && !isOpen && (
+      {editingItemId === null && !isOpen && !isModificationsModalOpen && (
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-40 right-6 z-[9999] w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-[0_8px_25px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.9)] transition-all duration-300 flex items-center justify-center border-4 border-white hover:scale-110"

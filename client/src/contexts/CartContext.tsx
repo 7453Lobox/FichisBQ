@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 export interface Modification {
   ingredient: string;
@@ -28,8 +28,27 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+const CART_STORAGE_KEY = 'fichis-bbq-cart';
+
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const [items, setItems] = useState<CartItem[]>(() => {
+    try {
+      const stored = localStorage.getItem(CART_STORAGE_KEY);
+      return stored ? JSON.parse(stored) : [];
+    } catch (error) {
+      console.error('Error loading cart from localStorage:', error);
+      return [];
+    }
+  });
+
+  // Persist cart to localStorage whenever items change
+  useEffect(() => {
+    try {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+    } catch (error) {
+      console.error('Error saving cart to localStorage:', error);
+    }
+  }, [items]);
 
   const addItem = (newItem: CartItem) => {
     setItems((prevItems) => {
@@ -76,6 +95,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const clearCart = () => {
     setItems([]);
+    try {
+      localStorage.removeItem(CART_STORAGE_KEY);
+    } catch (error) {
+      console.error('Error clearing cart from localStorage:', error);
+    }
   };
 
   const total = items.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
