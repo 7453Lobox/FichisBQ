@@ -30,7 +30,7 @@ export default function ModificationsModal({
   baseIngredients,
   existingModifications = [],
 }: ModificationsModalProps) {
-  const [mode, setMode] = useState<'add' | 'remove' | null>(null);
+  const [mode, setMode] = useState<'add' | 'remove' | null>('add');
   const [modifications, setModifications] = useState<Modification[]>(existingModifications);
 
   const allowedIngredients = getAllowedIngredients(category);
@@ -83,7 +83,7 @@ export default function ModificationsModal({
         <div className="bg-white border-b p-4 md:p-6 flex justify-between items-start flex-shrink-0">
           <div>
             <h2 className="text-xl md:text-2xl font-bold text-foreground">¿Deseas algún adicional?</h2>
-            <p className="text-xs md:text-sm text-muted-foreground">{dishName}</p>
+            <p className="text-xs md:text-sm text-primary font-semibold">{dishName}</p>
           </div>
           <button
             onClick={onClose}
@@ -95,51 +95,27 @@ export default function ModificationsModal({
 
         {/* Content - Scrolleable */}
         <div className="flex-1 overflow-y-auto px-4 md:px-6 py-4 md:py-6 space-y-6" style={{ scrollbarGutter: 'stable', WebkitOverflowScrolling: 'touch' }}>
-          {/* Mode Selection - Auto-set to 'add' */}
-          {!mode && (
-            <div className="flex gap-3 sticky top-0 bg-white pt-2 pb-4 z-10">
-              <Button
-                onClick={() => {
-                  setMode('add');
-                }}
-                variant="default"
-                className="flex-1 text-sm md:text-base font-semibold py-2 md:py-3 h-auto"
-              >
-                + Adicionar
-              </Button>
-              <Button
-                onClick={() => {
-                  setMode('remove');
-                }}
-                variant="outline"
-                className="flex-1 text-sm md:text-base font-semibold py-2 md:py-3 h-auto"
-              >
-                - Quitar
-              </Button>
-            </div>
-          )}
-          {mode && (
-            <div className="flex gap-3 sticky top-0 bg-white pt-2 pb-4 z-10">
-              <Button
-                onClick={() => {
-                  setMode('add');
-                }}
-                variant={mode === 'add' ? 'default' : 'outline'}
-                className="flex-1 text-sm md:text-base font-semibold py-2 md:py-3 h-auto"
-              >
-                + Adicionar
-              </Button>
-              <Button
-                onClick={() => {
-                  setMode('remove');
-                }}
-                variant={mode === 'remove' ? 'default' : 'outline'}
-                className="flex-1 text-sm md:text-base font-semibold py-2 md:py-3 h-auto"
-              >
-                - Quitar
-              </Button>
-            </div>
-          )}
+          {/* Mode Selection - Always show with 'add' pre-selected */}
+          <div className="flex gap-3 sticky top-0 bg-white pt-2 pb-4 z-10">
+            <Button
+              onClick={() => {
+                setMode('add');
+              }}
+              variant={mode === 'add' ? 'default' : 'outline'}
+              className="flex-1 text-sm md:text-base font-semibold py-2 md:py-3 h-auto"
+            >
+              + Adicionar
+            </Button>
+            <Button
+              onClick={() => {
+                setMode('remove');
+              }}
+              variant={mode === 'remove' ? 'default' : 'outline'}
+              className="flex-1 text-sm md:text-base font-semibold py-2 md:py-3 h-auto"
+            >
+              - Quitar
+            </Button>
+          </div>
 
           {/* Question */}
           {mode && (
