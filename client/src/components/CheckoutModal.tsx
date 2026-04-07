@@ -71,15 +71,39 @@ export default function CheckoutModal({ isOpen, onClose, onSubmit, totalPrice }:
 
   const handleSubmit = () => {
     if (validateForm()) {
-      onSubmit(formData);
-      setFormData({
-        nombre: '',
-        telefono: '',
-        direccion: '',
-        formaPago: 'efectivo',
-        hora: '',
+      // Play alert sound before submitting
+      const audio = new Audio('https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/Excelente-gracias_9486508b.mp3');
+      audio.play().catch(err => {
+        console.error('Error playing audio:', err);
+        // If audio fails, submit immediately
+        onSubmit(formData);
       });
-      setErrors({});
+      
+      // Submit after audio ends
+      audio.onended = () => {
+        onSubmit(formData);
+        setFormData({
+          nombre: '',
+          telefono: '',
+          direccion: '',
+          formaPago: 'efectivo',
+          hora: '',
+        });
+        setErrors({});
+      };
+      
+      // Fallback: submit after 5 seconds if audio doesn't end
+      setTimeout(() => {
+        onSubmit(formData);
+        setFormData({
+          nombre: '',
+          telefono: '',
+          direccion: '',
+          formaPago: 'efectivo',
+          hora: '',
+        });
+        setErrors({});
+      }, 5000);
     }
   };
 
