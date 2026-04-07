@@ -119,6 +119,7 @@ function FloatingCartContent() {
   };
 
   const handleEditItem = (index: number) => {
+    setIsOpen(false); // Close cart to show edit modal on top
     setEditingItemIndex(index);
     setEditingItemId(items[index].id);
   };
