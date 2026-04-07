@@ -189,7 +189,7 @@ function FloatingCartContent() {
                       <div className="flex-1">
                         <h3 className="font-bold text-foreground">{item.nombre}</h3>
                         {item.modifications && item.modifications.length > 0 && (
-                          <div className="text-xs text-muted-foreground mt-1">
+                          <div className="text-xs text-black mt-1">
                             {item.modifications.map((mod, i) => (
                               <div key={i}>
                                 {mod.type === 'added' ? '+' : '-'} {mod.ingredient}
@@ -224,10 +224,11 @@ function FloatingCartContent() {
 
                       <button
                         onClick={() => handleEditItem(index)}
-                        className="p-2 hover:bg-blue-100 text-blue-600 rounded transition-colors"
+                        className="p-2 hover:bg-blue-100 text-blue-600 rounded transition-colors flex items-center gap-1"
                         title="Editar"
                       >
                         <Edit2 size={16} />
+                        <span className="text-xs font-semibold">Editar</span>
                       </button>
 
                       <button

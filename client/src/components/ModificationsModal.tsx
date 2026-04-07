@@ -119,7 +119,7 @@ export default function ModificationsModal({
 
           {/* Question */}
           {mode && (
-            <p className="text-xs md:text-sm font-medium text-muted-foreground text-center -mt-2">
+            <p className="text-xs md:text-sm font-medium text-black text-center -mt-2">
               {mode === 'add' 
                 ? 'Selecciona ingredientes para agregar' 
                 : 'Selecciona ingredientes para quitar'}
