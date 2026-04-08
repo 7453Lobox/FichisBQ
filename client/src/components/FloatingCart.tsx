@@ -111,14 +111,34 @@ function FloatingCartContent() {
       const message = generateWhatsAppMessage(checkoutData);
       const encodedMessage = encodeURIComponent(message);
       
-      // Use iOS scheme for iOS devices, wa.me for Android/web
-      const whatsappUrl = isIOS()
-        ? `whatsapp://send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`
-        : `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+      // Robust WhatsApp opening with fallback for iOS and Android
+      const openWhatsApp = () => {
+        const iosUrl = `whatsapp://send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
+        const webUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+        
+        if (isIOS()) {
+          // For iOS: try native scheme first, then fallback to web
+          const iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          document.body.appendChild(iframe);
+          iframe.src = iosUrl;
+          
+          // Fallback to web URL after 1 second if native didn't work
+          setTimeout(() => {
+            window.location.href = webUrl;
+          }, 1000);
+          
+          // Cleanup iframe
+          setTimeout(() => {
+            document.body.removeChild(iframe);
+          }, 2000);
+        } else {
+          // For Android and Web: use web URL directly
+          window.open(webUrl, '_blank');
+        }
+      };
       
-      if (whatsappUrl) {
-        window.open(whatsappUrl, '_blank');
-      }
+      openWhatsApp();
 
       // Clear cart after successful order
       clearCart();
