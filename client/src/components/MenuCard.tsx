@@ -35,8 +35,18 @@ export default function MenuCard({
 
   useEffect(() => {
     if (addedToCart) {
-      // Play yummy sound
-      const audio = new Audio('https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/notification_sound_c83c3154.mp3');
+      // Array de audios para alternar
+      const audioUrls = [
+        'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/notification_sound_c83c3154.mp3', // Gran elección (original)
+        'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/te-va-a-encantar_01af6278.mp3',
+        'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/exito_6cb46897.mp3',
+        'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/irresistible_267d5772.mp3',
+        'https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/tu-paladar_2d135937.mp3',
+      ];
+      
+      // Seleccionar un audio aleatorio
+      const randomIndex = Math.floor(Math.random() * audioUrls.length);
+      const audio = new Audio(audioUrls[randomIndex]);
       audio.play().catch((err) => console.log('Audio play error:', err));
       
       const timer = setTimeout(() => setAddedToCart(false), 2000);
