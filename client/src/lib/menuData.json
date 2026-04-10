@@ -71,6 +71,7 @@
     {"nombre": "Queso Costeño", "descripcion": "Porción de queso asado a la plancha", "precio": 4000},
     {"nombre": "Porción de Papas", "descripcion": "Papitas francesas con paprika", "precio": 8000},
     {"nombre": "Carne de Hamburguesa", "descripcion": "130 Grs. De carne a la plancha", "precio": 7000},
-    {"nombre": "Bollo Limpio", "descripcion": "Un bollo de harina de maíz en trozos", "precio": 2000}
+    {"nombre": "Bollo Limpio", "descripcion": "Un bollo de harina de maíz en trozos", "precio": 2000},
+    {"nombre": "Suiza", "descripcion": "Porción de Salchicha Suiza", "precio": 7000}
   ]
 }
