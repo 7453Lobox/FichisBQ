@@ -66,11 +66,11 @@
     {"nombre": "Fichi's Suprema", "descripcion": "Papas a la francesa, Carne desmechada, Pollo desmechado, Chorizo de ternera, Tocineta Premium, Salchicha súper, Queso mozarela doble crema gratinado, Maíz, Lechuga, Papa chongo.", "precio": 40000}
   ],
   "Adicionales": [
-    {"nombre": "Tocineta", "precio": 2800},
-    {"nombre": "Queso Mozarela", "precio": 5000},
-    {"nombre": "Queso Costeño", "precio": 4000},
-    {"nombre": "Porción de Papas", "precio": 8000},
-    {"nombre": "Carne de Hamburguesa", "precio": 7000},
-    {"nombre": "Bollo Limpio", "precio": 2000}
+    {"nombre": "Tocineta", "descripcion": "2 lonchas de tocinetas a la plancha", "precio": 2800},
+    {"nombre": "Queso Mozarela", "descripcion": "Porción de queso gratinado", "precio": 5000},
+    {"nombre": "Queso Costeño", "descripcion": "Porción de queso asado a la plancha", "precio": 4000},
+    {"nombre": "Porción de Papas", "descripcion": "Papitas francesas con paprika", "precio": 8000},
+    {"nombre": "Carne de Hamburguesa", "descripcion": "130 Grs. De carne a la plancha", "precio": 7000},
+    {"nombre": "Bollo Limpio", "descripcion": "Un bollo de harina de maíz en trozos", "precio": 2000}
   ]
 }
