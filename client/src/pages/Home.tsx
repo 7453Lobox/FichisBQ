@@ -523,7 +523,7 @@ export default function Home() {
                 <img 
                   src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/sic-logo-brown_e4c28788.png" 
                   alt="SIC" 
-                  className="h-20 w-auto"
+                  className="h-10 w-auto"
                 />
               </a>
               
