@@ -492,7 +492,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-20">
             <a
               href="https://www.google.com/maps/place/fichi's,+Cra.+27,+Suroccidente,+Barranquilla,+Atl%C3%A1ntico/@10.9703807,-74.791762,15z/data=!4m6!3m5!1s0x8ef42d5b31357cbb:0x91c6751df5cc8232!8m2!3d10.9703807!4d-74.791762!16s%2Fg%2F11v62whjb6?utm_campaign=ml-ardl-aht_2025&g_ep=Eg1tbF8yMDI2MDQwMV8wIJvbDyoASAJQAQ%3D%3D"
               target="_blank"
