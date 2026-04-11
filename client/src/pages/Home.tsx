@@ -567,8 +567,8 @@ export default function Home() {
             </div>
 
             {/* Right Column - CompuPhone Logo and Credits */}
-            <div className="flex flex-col items-center md:items-end">
-              <p className="text-xs text-primary mb-2 text-center md:text-right">Desarrollado por</p>
+            <div className="flex flex-col items-center md:items-center">
+              <p className="text-xs text-primary mb-2 text-center">Desarrollado por</p>
               <a 
                 href="https://www.facebook.com/CompuPhoneBarranquilla/" 
                 target="_blank" 
