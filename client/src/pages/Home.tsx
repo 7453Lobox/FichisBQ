@@ -506,7 +506,8 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-dark text-white py-12 border-t border-primary/30">
+      <footer className="bg-dark text-white py-12">
+        <div className="border-t border-primary/30 mx-[20%] mb-8"></div>
         <div className="container">
           {/* Main Footer Content - 3 Column Layout */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-8">
@@ -586,7 +587,7 @@ export default function Home() {
                 href="https://www.facebook.com/CompuPhoneBarranquilla/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-primary hover:underline transition-colors text-xs font-semibold"
+                className="text-primary hover:underline transition-colors text-sm font-semibold"
               >
                 CompuPhone
               </a>
