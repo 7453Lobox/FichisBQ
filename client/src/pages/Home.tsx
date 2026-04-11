@@ -506,22 +506,81 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-dark text-white py-8">
-        <div className="container text-center">
-          <p className="font-bold mb-2 text-primary">Fichi's BBQ - Donde los Guerreros Comen</p>
-          <p className="text-sm text-black">
-            Hecho con fuego y pasión por la buena comida
-          </p>
-          <div className="flex justify-center gap-4 mt-4">
-            <a href="https://instagram.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Instagram">
-              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/instagram_icon_9551fcdb.png" alt="Instagram" className="w-8 h-8" />
-            </a>
-            <a href="https://facebook.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Facebook">
-              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/facebook_icon_7ea649a7.png" alt="Facebook" className="w-8 h-8" />
-            </a>
-            <a href="https://wa.me/573022525442?text=Hola%20Fichi's%20BQ%2C%20quisiera%20hacer%20un%20rico%20pedido" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="WhatsApp">
-              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp_icon_86efb8be.png" alt="WhatsApp" className="w-8 h-8" />
-            </a>
+      <footer className="bg-dark text-white py-12">
+        <div className="container">
+          {/* Legal Information Section */}
+          <div className="mb-8 pb-8 border-b border-primary/30">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              {/* Legal Text */}
+              <div className="flex-1 text-center md:text-left">
+                <p className="text-sm text-primary mb-2 leading-relaxed">
+                  El gramaje de cada proteína corresponde a su peso en crudo. Todos nuestros precios incluyen impuestos.
+                </p>
+                <p className="text-sm text-primary leading-relaxed">
+                  Fotos de referencia publicitaria (IA). Sujeto a disponibilidad y cobertura del punto de venta.
+                </p>
+              </div>
+              
+              {/* SIC Image */}
+              <div className="flex-shrink-0">
+                <a 
+                  href="https://www.sic.gov.co/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block cursor-pointer transition-opacity hover:opacity-80"
+                  title="Superintendencia de Industria y Comercio"
+                >
+                  <svg 
+                    width="60" 
+                    height="60" 
+                    viewBox="0 0 60 60" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="text-primary"
+                  >
+                    <circle cx="30" cy="30" r="28" stroke="currentColor" strokeWidth="2"/>
+                    <text x="30" y="35" textAnchor="middle" fontSize="12" fontWeight="bold" fill="currentColor" fontFamily="Arial">
+                      SIC
+                    </text>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Footer Content */}
+          <div className="text-center">
+            <p className="font-bold mb-2 text-primary">Fichi's BBQ - Donde los Guerreros Comen</p>
+            <p className="text-sm text-black mb-6">
+              Hecho con fuego y pasión por la buena comida
+            </p>
+            <div className="flex justify-center gap-4 mb-8">
+              <a href="https://instagram.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Instagram">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/instagram_icon_9551fcdb.png" alt="Instagram" className="w-8 h-8" />
+              </a>
+              <a href="https://facebook.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Facebook">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/facebook_icon_7ea649a7.png" alt="Facebook" className="w-8 h-8" />
+              </a>
+              <a href="https://wa.me/573022525442?text=Hola%20Fichi's%20BQ%2C%20quisiera%20hacer%20un%20rico%20pedido" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="WhatsApp">
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp_icon_86efb8be.png" alt="WhatsApp" className="w-8 h-8" />
+              </a>
+            </div>
+            
+            {/* Copyright and Credits */}
+            <div className="text-xs text-black space-y-2">
+              <p>Copyright © Fichi's BBQ. Todos los derechos reservados.</p>
+              <p>
+                Desarrollado por{' '}
+                <a 
+                  href="https://www.facebook.com/CompuPhoneBarranquilla/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline transition-colors"
+                >
+                  CompuPhone
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </footer>
