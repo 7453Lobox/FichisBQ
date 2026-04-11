@@ -510,9 +510,33 @@ export default function Home() {
         <div className="border-t border-primary/30 mx-[20%] mb-8"></div>
         <div className="container">
           {/* Main Footer Content - 3 Column Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-8">
-            {/* Left Column - SIC Logo and Legal Info */}
-            <div className="flex flex-col items-center md:items-start">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-8 order-1 md:order-none">
+            {/* Center Column - Main Info and Social - First on mobile */}
+            <div className="text-center order-first md:order-2">
+              <p className="font-bold text-primary mb-2 text-base">Fichi's BBQ - Donde Comen los Guerreros</p>
+              <p className="text-sm text-black mb-4">
+                Hecho con fuego y pasión por la buena comida
+              </p>
+              
+              {/* Social Icons */}
+              <div className="flex justify-center gap-4 mb-4">
+                <a href="https://instagram.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Instagram">
+                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/instagram_icon_9551fcdb.png" alt="Instagram" className="w-9 h-9" />
+                </a>
+                <a href="https://facebook.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Facebook">
+                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/facebook_icon_7ea649a7.png" alt="Facebook" className="w-9 h-9" />
+                </a>
+                <a href="https://wa.me/573022525442?text=Hola%20Fichi's%20BQ%2C%20quisiera%20hacer%20un%20rico%20pedido" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="WhatsApp">
+                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp_icon_86efb8be.png" alt="WhatsApp" className="w-9 h-9" />
+                </a>
+              </div>
+              
+              {/* Copyright */}
+              <p className="text-xs text-black">Copyright © Fichi's BBQ. Todos los derechos reservados.</p>
+            </div>
+
+            {/* Left Column - SIC Logo and Legal Info - Second on mobile */}
+            <div className="flex flex-col items-center md:items-start order-2 md:order-1">
               {/* SIC Logo */}
               <a 
                 href="https://www.sic.gov.co/" 
@@ -543,32 +567,8 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Center Column - Main Info and Social */}
-            <div className="text-center">
-              <p className="font-bold text-primary mb-2 text-base">Fichi's BBQ - Donde Comen los Guerreros</p>
-              <p className="text-sm text-black mb-4">
-                Hecho con fuego y pasión por la buena comida
-              </p>
-              
-              {/* Social Icons */}
-              <div className="flex justify-center gap-4 mb-4">
-                <a href="https://instagram.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Instagram">
-                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/instagram_icon_9551fcdb.png" alt="Instagram" className="w-9 h-9" />
-                </a>
-                <a href="https://facebook.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Facebook">
-                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/facebook_icon_7ea649a7.png" alt="Facebook" className="w-9 h-9" />
-                </a>
-                <a href="https://wa.me/573022525442?text=Hola%20Fichi's%20BQ%2C%20quisiera%20hacer%20un%20rico%20pedido" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="WhatsApp">
-                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp_icon_86efb8be.png" alt="WhatsApp" className="w-9 h-9" />
-                </a>
-              </div>
-              
-              {/* Copyright */}
-              <p className="text-xs text-black">Copyright © Fichi's BBQ. Todos los derechos reservados.</p>
-            </div>
-
-            {/* Right Column - CompuPhone Logo and Credits */}
-            <div className="flex flex-col items-center md:items-center">
+            {/* Right Column - CompuPhone Logo and Credits - Third on mobile */}
+            <div className="flex flex-col items-center md:items-center order-3 md:order-3">
               <p className="text-xs text-primary mb-2 text-center">Desarrollado por</p>
               <a 
                 href="https://www.facebook.com/CompuPhoneBarranquilla/" 
