@@ -521,7 +521,7 @@ export default function Home() {
                 title="Superintendencia de Industria y Comercio"
               >
                 <img 
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/sic-logo-brown_e4c28788.png" 
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/sic-logo-hq-brown_3556b97a.png" 
                   alt="SIC" 
                   className="h-10 w-auto"
                 />
@@ -529,16 +529,22 @@ export default function Home() {
               
               {/* Legal Information */}
               <p className="text-xs text-primary leading-relaxed text-center md:text-left">
-                El gramaje de cada proteína corresponde a su peso en crudo. Todos nuestros precios incluyen impuestos.
+                El gramaje de cada proteína corresponde a su peso en crudo.
               </p>
-              <p className="text-xs text-primary leading-relaxed text-center md:text-left mt-2">
-                Fotos de referencia publicitaria (IA). Sujeto a disponibilidad y cobertura del punto de venta.
+              <p className="text-xs text-primary leading-relaxed text-center md:text-left mt-1">
+                Todos nuestros precios incluyen impuestos.
+              </p>
+              <p className="text-xs text-primary leading-relaxed text-center md:text-left mt-1">
+                Fotos de referencia publicitaria (IA).
+              </p>
+              <p className="text-xs text-primary leading-relaxed text-center md:text-left mt-1">
+                Sujeto a disponibilidad y cobertura del punto de venta.
               </p>
             </div>
 
             {/* Center Column - Main Info and Social */}
             <div className="text-center">
-              <p className="font-bold text-primary mb-2">Fichi's BBQ - Donde los Guerreros Comen</p>
+              <p className="font-bold text-primary mb-2 text-base">Fichi's BBQ - Donde Comen los Guerreros</p>
               <p className="text-sm text-black mb-4">
                 Hecho con fuego y pasión por la buena comida
               </p>
@@ -546,13 +552,13 @@ export default function Home() {
               {/* Social Icons */}
               <div className="flex justify-center gap-4 mb-4">
                 <a href="https://instagram.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Instagram">
-                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/instagram_icon_9551fcdb.png" alt="Instagram" className="w-8 h-8" />
+                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/instagram_icon_9551fcdb.png" alt="Instagram" className="w-9 h-9" />
                 </a>
                 <a href="https://facebook.com/fichisbq" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="Facebook">
-                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/facebook_icon_7ea649a7.png" alt="Facebook" className="w-8 h-8" />
+                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/facebook_icon_7ea649a7.png" alt="Facebook" className="w-9 h-9" />
                 </a>
                 <a href="https://wa.me/573022525442?text=Hola%20Fichi's%20BQ%2C%20quisiera%20hacer%20un%20rico%20pedido" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="WhatsApp">
-                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp_icon_86efb8be.png" alt="WhatsApp" className="w-8 h-8" />
+                  <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663461231402/ZAf6EHxtQifi3Kavc8aaUS/whatsapp_icon_86efb8be.png" alt="WhatsApp" className="w-9 h-9" />
                 </a>
               </div>
               
