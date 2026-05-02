@@ -8,7 +8,7 @@ import { useAuth } from '@/_core/hooks/useAuth';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useCart } from '@/contexts/CartContext';
 import { getDishImage } from '@/lib/dishImages';
-import { Sun, Moon, ArrowLeft } from 'lucide-react';
+import { Sun, Moon, ArrowLeft, MessageCircle } from 'lucide-react';
 
 /**
  * Home Page - Fichi's BBQ Landing Page
@@ -118,8 +118,8 @@ export default function Home() {
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <a href="https://wa.me/573022525442" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center text-xs md:text-sm font-bold text-primary dark:text-white hover:text-accent dark:hover:text-accent transition-colors">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp" className="w-5 h-5 object-contain" />
+            <a href="https://wa.me/573022525442?text=Hola%20Fichi's%20BQ%2C%20quisiera%20hacer%20un%20rico%20pedido" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80" title="WhatsApp">
+              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663461231402/vMgKTHtPjBPIpmyw.png" alt="WhatsApp" className="w-7 h-7" />
             </a>
             <button
               onClick={() => {
